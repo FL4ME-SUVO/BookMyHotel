@@ -1,0 +1,125 @@
+/* General Section Styles */
+.ftco-section {
+    position: relative;
+    padding: 120px 0;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .ftco-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 108, 52, 0.6); /* <- Dark shade overlay */
+    z-index: 0;
+  }
+  
+  .ftco-section > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  .ftco-section > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Container to control max width */
+  .container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+  }
+  
+  /* Heading styles */
+  .heading-wrapper {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .heading-wrapper h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .heading-wrapper .subheading {
+    font-size: 18px;
+    font-weight: 300;
+    color: #dcdcdc;
+  }
+  
+  /* Counters flex */
+  .counters-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  /* Single Counter Card */
+  .counter-card {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 40px 20px;
+    min-width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .counter-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .counter-card .number {
+    font-size: 30px;
+    font-weight: bold;
+    color:white;
+  }
+  
+  .counter-card span {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    margin-top: 10px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .heading-wrapper h2 {
+      font-size: 30px;
+    }
+  
+    .counter-card {
+      min-width: 150px;
+      padding: 30px 15px;
+    }
+  
+    .counter-card .number {
+      font-size: 36px;
+    }
+  
+    .counter-card span {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .counter-card {
+      width: 100%;
+    }
+  }
+  
