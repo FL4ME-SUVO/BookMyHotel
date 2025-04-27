@@ -1,0 +1,119 @@
+/* Mission Goals Section - Modern and Engaging Design */
+.mission-goals-section {
+  padding: 4.5rem 2rem; /* Slightly increased padding for overall spaciousness */
+  background: #f9f9f9; /* Soft background for contrast */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 12px; /* Rounded corners for container */
+}
+
+.mission-goals-container {
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 1rem; /* Added padding to container for inner spacing */
+}
+
+/* Tabs aligned to the right with enhanced styles */
+.tabs-right {
+  text-align: right; 
+  margin-bottom: 2rem;
+}
+
+.tabs-right button {
+  background: none; 
+  border: 1px solid #ddd; 
+  padding: 10px 20px; 
+  margin-left: 10px; 
+  font-size: 1rem; 
+  cursor: pointer; 
+  border-radius: 30px; /* More rounded corners */
+  transition: all 0.3s ease; 
+  position: relative; /* For hover effects */
+}
+
+.tabs-right button:hover {
+  background: #F85959; /* Highlight color on hover */
+  color: #fff; 
+}
+
+.tabs-right button.active {
+  background: #F85959; 
+  color: #fff; 
+  border-color: #253d43; 
+}
+
+.mission-goals-content {
+  display: flex; 
+  gap: 40px; 
+  align-items: flex-start; 
+  flex-wrap: wrap;  
+  justify-content: space-between; /* Even distribution of content */
+}
+
+.mission-goals-image img {
+  max-width: 100%; 
+  border-radius: 10px; 
+  transition: transform 0.3s ease; /* Animation on image hover */
+}
+
+.mission-goals-image img:hover {
+  transform: scale(1.05); /* Enlarge image on hover */
+}
+
+.mission-goals-text {
+  flex: 1; 
+  min-width: 280px; 
+  max-width: 500px; 
+  padding: 1rem; /* Added padding for text area */
+  background: #fff; /* White background for contrasting text */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  border-radius: 8px; /* Rounded corners on text container */
+}
+
+.mission-goals-text h3 {
+  font-size: 2rem; 
+  margin-bottom: 1rem; 
+  color: #222; 
+  text-transform: capitalize; /* Capitalize headings for enhanced style */
+}
+
+.mission-goals-text p {
+  margin-bottom: 1rem; 
+  color: #555; 
+  line-height: 1.6; 
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .mission-goals-content {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+
+  .tabs-right {
+    text-align: center; 
+    margin-bottom: 1rem; 
+  }
+
+  .tabs-right button {
+    margin: 5px; 
+    padding: 8px 12px; 
+    font-size: 0.9rem; /* Smaller font for mobile */
+  }
+
+  .mission-goals-text h3 {
+    font-size: 1.6rem; 
+  }
+
+  .mission-goals-text p {
+    font-size: 0.9rem; 
+  }
+}
+
+@media (max-width: 500px) {
+  .mission-goals-text h3 {
+    font-size: 1.4rem; 
+  }
+
+  .mission-goals-text p {
+    font-size: 0.85rem; /* Further decrease for very small devices */
+  }
+}

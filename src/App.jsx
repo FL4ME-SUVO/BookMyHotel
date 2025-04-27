@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-// import LoginSignup from './components/Auth/AuthPage'; // Assuming you have this page (login/signup swipe)
+import About from './pages/About'
+
 
 
 function App() {
@@ -9,10 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/login" element={<LoginSignup />} />
-        <Route path="/signup" element={<LoginSignup />} /> */}
-        {/* Optional: Future Expansion */}
-
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
