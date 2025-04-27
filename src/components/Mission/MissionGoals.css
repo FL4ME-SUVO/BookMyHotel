@@ -1,7 +1,7 @@
 /* Mission Goals Section - Modern and Engaging Design */
 .mission-goals-section {
   padding: 4.5rem 2rem; /* Slightly increased padding for overall spaciousness */
-  background: #f9f9f9; /* Soft background for contrast */
+  background: white; /* Soft background for contrast */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   border-radius: 12px; /* Rounded corners for container */
 }

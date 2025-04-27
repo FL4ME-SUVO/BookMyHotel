@@ -53,7 +53,7 @@
   color: #222;
   text-align: center;
   margin-bottom: 2rem; /* Reduced margin for compactness */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 2px; /* Coherent spacing */
 }
 
