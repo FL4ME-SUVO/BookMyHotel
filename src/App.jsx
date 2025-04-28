@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Hotels from './pages/Hotels';
 import PageLoader from './components/PageLoader/PageLoader'; // adjust path if needed
 import Restaurant from './pages/Restaurant';
+import LoginSignup from './pages/Auth'
 
 function AppContent() {
   const location = useLocation();
@@ -29,7 +30,9 @@ function AppContent() {
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/restaurant" element={<Restaurant />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/auth" element={<LoginSignup />} />  {/* <<< Added here */}
         </Routes>
+
       </div>
     </>
   );

@@ -56,10 +56,10 @@ function Navbar() {
               <Link to="/contact" className="nav-link">Contact</Link>
             </li>
             <li className="nav-item">
-              <Link to="/login" className="nav-link btn-login">Log in</Link>
+              <Link to="/auth" className="nav-link btn-login">Log in</Link>
             </li>
             <li className="nav-item">
-              <Link to="/signup" className="nav-link btn-signup">Sign up</Link>
+              <Link to="/auth" className="nav-link btn-signup">Sign up</Link>
             </li>
           </ul>
         </div>
