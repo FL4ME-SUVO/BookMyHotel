@@ -7,7 +7,7 @@ import Hotels from '../components/Hotels/Hotels';
 import Testimony from '../components/Testimony/TestimonySection';
 import Footer from '../components/Footer/Footer';
 import Funviews from '../components/Funviews/FunFactsSection';
-import PageLoader from '../components/PageLoader/PageLoader';
+
 
 function Home() {
   return (

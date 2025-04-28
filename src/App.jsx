@@ -5,6 +5,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Hotels from './pages/Hotels';
 import PageLoader from './components/PageLoader/PageLoader'; // adjust path if needed
+import Restaurant from './pages/Restaurant';
 
 function AppContent() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/hotels" element={<Hotels />} />
+          <Route path="/restaurant" element={<Restaurant />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>

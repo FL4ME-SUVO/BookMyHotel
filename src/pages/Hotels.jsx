@@ -7,10 +7,10 @@ import FilterBar from '../components/FilterBar/FilterBar';
 
 function Hotels() {
     return (
-        <div className="about-page">
+        <div className="hotels-page">
             <Navbar />
             <Hero2
-                backgroundImage="/images/bg_3.jpg"
+                backgroundImage="/images/bg_7.jpg"
                 breadcrumb="Home / Hotels"
                 title="Hotels"
             />

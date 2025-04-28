@@ -50,7 +50,7 @@ function Navbar() {
               <Link to="/hotels" className="nav-link">Hotels</Link>
             </li>
             <li className="nav-item">
-              <Link to="/blog" className="nav-link">Restaurant</Link>
+              <Link to="/restaurant" className="nav-link">Restaurant</Link>
             </li>
             <li className="nav-item">
               <Link to="/contact" className="nav-link">Contact</Link>
