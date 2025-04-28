@@ -1,0 +1,53 @@
+/* PageLoader.css */
+
+.page-loader {
+  position: fixed; /* Fixes to the viewport */
+  top: 0;         /* Aligns it to the top */
+  left: 0;        /* Aligns it to the left */
+  width: 100vw;   /* Full width of the viewport */
+  height: 100vh;  /* Full height of the viewport */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  display: flex;  /* Use flexbox to center the content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 9999; /* Make sure it appears above other content */
+  opacity: 0; /* Start hidden for fade-in effect */
+  animation: fadeIn 0.5s forwards; /* Fade-in effect */
+}
+
+.loader-logo {
+  max-width: 150px; /* Adjust the max width of the logo */
+  max-height: 150px; /* Adjust the max height of the logo */
+  animation: pulse 1.5s infinite, slideIn 0.5s forwards; /* Pulsing and slide-in effect */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }    
+  100% { opacity: 1; }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px); /* Start above */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateY(0); /* End in normal position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Normal size */
+  }
+  50% {
+    transform: scale(1.1); /* Slightly larger */
+  }
+  100% {
+    transform: scale(1); /* Back to normal size */
+  }
+}
