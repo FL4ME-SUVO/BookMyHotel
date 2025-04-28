@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Hotels from './pages/Hotels';
 import PageLoader from './components/PageLoader/PageLoader'; // adjust path if needed
 
 function AppContent() {
@@ -24,6 +25,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/hotels" element={<Hotels />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>

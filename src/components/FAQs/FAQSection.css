@@ -1,107 +1,83 @@
-/* FAQ Section - Modern Minimalist Compact Version */
+/* FAQ Section - Visually Glowing Effect */
 .faq-section {
-  background: linear-gradient(135deg, #ffffff 60%, #eaeaea 40%);
-  padding: 6rem 2rem; /* Reduced padding for compactness */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  position: relative; /* allows for a pseudo-element */
-  overflow: hidden; /* Prevent overflow of lower elements */
-}
-
-.faq-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: rgba(248, 89, 89, 0.1);
-  z-index: 0;
-  transform: skewX(-10deg);
-  pointer-events: none; /* Allow clicks through */
-  animation: fadeInBackground 0.5s ease; /* Gradual background appearance */
-}
-
-@keyframes fadeInBackground {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Light gradient for background */
+  padding: 4rem 1.5rem; /* Ample padding */
+  box-shadow: none; /* No box shadow for a cleaner look */
+  position: relative;
+  overflow: hidden;
 }
 
 .faq-container {
-  max-width: 800px; /* Slightly reduced width for compactness */
+  max-width: 750px; /* Adjusted for modern look */
   margin: 0 auto;
-  background: #ffffff;
-  border-radius: 12px; /* Rounded corners for a softer look */
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  z-index: 1; /* Bring container above background */
-}
-
-.faq-container h4 {
-  color: #f85959;
-  font-size: 1.1rem; /* Size optimized for better fit */
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem; /* Consistent padding */
-  background: #ffffff; /* White background */
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background: transparent; /* No background */
+  border-radius: 10px; /* Slightly rounded corners */
 }
 
 .faq-container h2 {
-  font-size: 2.5rem; /* Slightly smaller headline */
+  font-size: 2.2rem; /* Heading size */
   font-weight: 700; 
   color: #222;
   text-align: center;
-  margin-bottom: 2rem; /* Reduced margin for compactness */
-  /* text-transform: uppercase; */
-  letter-spacing: 2px; /* Coherent spacing */
+  margin-bottom: 2rem; 
+  letter-spacing: 1px; 
+}
+
+.faq-container h4 {
+  color: #f85959; /* Heading color */
+  font-size: 1.1rem; 
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .faq-list {
-  display: grid;
-  gap: 1.5rem; /* Adjusted spacing for closer items */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
 }
 
 .faq-item {
-  background: #f9f9f9; 
-  border: 1px solid #e0e0e0;
-  border-radius: 10px; /* Reduced border radius */
-  overflow: hidden;
-  transition: all 0.3s ease;
+  background: rgba(249, 249, 249, 0.8); /* Light transparent background */
+  border-radius: 6px; 
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  position: relative; /* For glow effect */
+  overflow: hidden; /* Ensure glow doesn't overflow */
 }
 
-.faq-item:hover {
-  border-color: #f85959; 
-  transform: translateY(-2px); /* Slight lift on hover */
+.faq-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit; /* Match border radius */
+  background: rgba(248, 89, 89, 0.3); /* Soft glow color */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  z-index: 0; /* Behind the content */
 }
 
-.faq-item.active {
-  border-color: #f85959;
-  box-shadow: 0 4px 20px rgba(248, 89, 89, 0.4);
+.faq-item:hover::before {
+  opacity: 1; /* Show glow on hover */
 }
 
 .faq-question {
-  padding: 1.2rem; /* Reduced padding for compactness */
+  padding: 1rem; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
   color: #333;
-  background: #ffffff; /* Clear background for questions */
-  transition: background 0.3s ease;
-}
-
-.faq-item:hover .faq-question {
-  background: #f5f5f5; /* Slight change on hover */
+  position: relative; /* Needed to position icon */
+  z-index: 1; /* Above the glow */
 }
 
 .faq-icon {
-  font-size: 1.5rem; /* Optimized icon size */
-  font-weight: bold;
-  color: #f85959;
-  transition: transform 0.3s ease;
+  font-size: 1.5rem; /* Icon size */
+  color: #f85959; 
+  transition: transform 0.3s ease; /* Smooth rotation */
 }
 
 .faq-item.active .faq-icon {
@@ -109,36 +85,43 @@
 }
 
 .faq-answer {
-  padding: 0 1.2rem 1.5rem; /* Reduced padding for answers */
+  padding: 1rem; /* Padding for answers */
   color: #666;
-  line-height: 1.5; /* Adjusted line height for compactness */
-  background: #fdfdfd; 
-  border-top: 1px solid #eaeaea; /* Cleaner divider line */
-  animation: fadeIn 0.3s ease; /* Smooth appearance effect */
+  line-height: 1.5; 
+  background: transparent; /* Transparent background */
+  border-top: 1px solid #eaeaea; 
+  opacity: 0; /* Start hidden */
+  transform: translateY(-10px); /* Start slightly above */
+  animation: fadeIn 0.3s forwards; /* Fade-in effect */
+  z-index: 1; /* Above the glow */
+}
+
+.faq-item.active .faq-answer {
+  opacity: 1; /* Fully visible when active */
+  transform: translateY(0); /* Move into place */
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
+  from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .faq-section {
-    padding: 4rem 1.5rem; /* Further compact padding */
+    padding: 3rem 1rem; 
   }
-  
+
   .faq-container h2 {
-    font-size: 2rem; /* Adjusted heading size for mobile */
+    font-size: 1.8rem; 
   }
-  
+
   .faq-question {
-    padding: 1rem; /* Reduced padding for mobile */
-    font-weight: 500; 
+    padding: 0.8rem; 
   }
   
   .faq-answer {
-    padding: 0 1rem 1rem; /* Compact answer padding */
+    padding: 0.8rem; /* Increase padding */
   }
 
   .faq-icon {
@@ -147,11 +130,8 @@
 }
 
 @media (max-width: 500px) {
-  .faq-container h2 {
-    font-size: 1.7rem; /* Even smaller for very small devices */
-  }
-  
+  .faq-container h2,
   .faq-container h4 {
-    font-size: 0.9rem; /* Adjust small headings for mobile */
+    font-size: 1.5rem; 
   }
 }
