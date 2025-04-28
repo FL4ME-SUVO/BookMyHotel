@@ -1,21 +1,21 @@
-/* FAQ Section - Visually Glowing Effect */
+/* FAQ Section - Visually Enhanced Glow Effect */
 .faq-section {
   background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Light gradient for background */
   padding: 4rem 1.5rem; /* Ample padding */
-  box-shadow: none; /* No box shadow for a cleaner look */
+  box-shadow: none; /* No shadow for clean look */
   position: relative;
   overflow: hidden;
 }
 
 .faq-container {
-  max-width: 750px; /* Adjusted for modern look */
+  max-width: 750px; /* Width adjustment */
   margin: 0 auto;
   background: transparent; /* No background */
-  border-radius: 10px; /* Slightly rounded corners */
+  border-radius: 10px; /* Soft corners */
 }
 
 .faq-container h2 {
-  font-size: 2.2rem; /* Heading size */
+  font-size: 2.4rem; /* Slightly larger heading */
   font-weight: 700; 
   color: #222;
   text-align: center;
@@ -25,7 +25,7 @@
 
 .faq-container h4 {
   color: #f85959; /* Heading color */
-  font-size: 1.1rem; 
+  font-size: 1.2rem; /* Increased font size */
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -37,12 +37,17 @@
 }
 
 .faq-item {
-  background: rgba(249, 249, 249, 0.8); /* Light transparent background */
+  background: rgba(255, 255, 255, 0.9); /* Light transparent background */
   border-radius: 6px; 
   cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
   position: relative; /* For glow effect */
   overflow: hidden; /* Ensure glow doesn't overflow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  transition: background 0.3s, border 0.3s; /* Smooth transition for background and border */
+}
+
+.faq-item.active {
+  border: 2px solid #f85959; /* Bold border color on expand */
 }
 
 .faq-item::before {
@@ -52,8 +57,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: inherit; /* Match border radius */
-  background: rgba(248, 89, 89, 0.3); /* Soft glow color */
+  border-radius: inherit;
+  background: rgba(248, 89, 89, 0.4); /* Vibrant glow color */
   opacity: 0; /* Start hidden */
   transition: opacity 0.3s ease; /* Smooth transition */
   z-index: 0; /* Behind the content */
@@ -61,6 +66,19 @@
 
 .faq-item:hover::before {
   opacity: 1; /* Show glow on hover */
+  animation: pulse 1s infinite; /* Add pulse animation */
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(248, 89, 89, 0.5), 0 0 20px rgba(248, 89, 89, 0.5); /* Initial soft glow */
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(248, 89, 89, 0.8), 0 0 40px rgba(248, 89, 89, 0.8); /* Brighter glow */
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(248, 89, 89, 0.5), 0 0 20px rgba(248, 89, 89, 0.5); /* Return to initial */
+  }
 }
 
 .faq-question {
@@ -70,29 +88,30 @@
   align-items: center;
   font-weight: 600;
   color: #333;
-  position: relative; /* Needed to position icon */
+  position: relative; 
   z-index: 1; /* Above the glow */
 }
 
 .faq-icon {
   font-size: 1.5rem; /* Icon size */
   color: #f85959; 
-  transition: transform 0.3s ease; /* Smooth rotation */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 .faq-item.active .faq-icon {
   transform: rotate(180deg); /* Rotate on activation */
+  color: #d63031; /* Darker color when active */
 }
 
 .faq-answer {
   padding: 1rem; /* Padding for answers */
   color: #666;
   line-height: 1.5; 
-  background: transparent; /* Transparent background */
+  background: white; /* Background is white */
   border-top: 1px solid #eaeaea; 
   opacity: 0; /* Start hidden */
   transform: translateY(-10px); /* Start slightly above */
-  animation: fadeIn 0.3s forwards; /* Fade-in effect */
+  animation: fadeIn 0.4s forwards; /* Fade-in effect */
   z-index: 1; /* Above the glow */
 }
 
