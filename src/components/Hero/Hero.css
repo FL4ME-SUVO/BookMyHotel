@@ -69,7 +69,7 @@
   padding-left: 2.5rem;
   background: rgba(255, 255, 255, 0.959);
   border: none;
-  /* border-radius: 10px; */
+  border-radius: 1px !important;
   font-size: 1rem;
   color: #333;
   outline: none;
