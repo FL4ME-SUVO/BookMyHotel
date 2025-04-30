@@ -4,9 +4,13 @@ export const hotels = [
     name: "Hotel Mountain View",
     location: "Shimla, India",
     image: "/images/hotel-1.jpg",
+    images: ["/images/room-1.jpg", "/images/room-2.jpg", "/images/room-3.jpg"],
     price: 1200,
     description: "Nestled in the hills with breathtaking views of the Himalayan ranges.",
     rating: 4.8,
+    rooms: 2,
+    bathrooms: 1,
+    guests: 4,
     amenities: ["Free WiFi", "Spa", "Restaurant", "Room Service"]
   },
   {
@@ -14,9 +18,13 @@ export const hotels = [
     name: "Lakeside Resort",
     location: "Kashmir, India",
     image: "/images/hotel-2.jpg",
+    images: ["/images/room-4.jpg", "/images/room-5.jpg"],
     price: 750,
     description: "Luxury accommodations on the shores of Dal Lake with stunning views.",
     rating: 4.7,
+    rooms: 1,
+    bathrooms: 1,
+    guests: 2,
     amenities: ["Pool", "Free WiFi", "Restaurant", "Gym"]
   },
   {
@@ -24,9 +32,13 @@ export const hotels = [
     name: "Beach Paradise Hotel",
     location: "Goa, India",
     image: "/images/hotel-3.jpg",
+    images: ["/images/room-6.jpg", "/images/room-7.jpg", "/images/room-8.jpg"],
     price: 880,
     description: "Beachfront property with direct access to the white sands of Goa.",
     rating: 4.9,
+    rooms: 3,
+    bathrooms: 2,
+    guests: 6,
     amenities: ["Beachfront", "Pool", "Bar", "Free WiFi"]
   },
   {
@@ -34,9 +46,13 @@ export const hotels = [
     name: "River View Inn",
     location: "Varanasi, India",
     image: "/images/hotel-4.jpg",
+    images: ["/images/room-9.jpg", "/images/room-10.jpg"],
     price: 900,
     description: "Traditional accommodations with stunning views of the Ganges River.",
     rating: 4.5,
+    rooms: 1,
+    bathrooms: 1,
+    guests: 3,
     amenities: ["River View", "Restaurant", "Cultural Tours", "Free WiFi"]
   },
   {
@@ -44,19 +60,55 @@ export const hotels = [
     name: "Snow Peak Lodge",
     location: "Manali, India",
     image: "/images/hotel-5.jpg",
+    images: ["/images/room-11.jpg", "/images/room-12.jpg"],
     price: 1350,
     description: "Cozy lodge surrounded by pine forests and snow-capped mountains.",
     rating: 4.6,
+    rooms: 2,
+    bathrooms: 1,
+    guests: 4,
     amenities: ["Fireplace", "Mountain View", "Restaurant", "Hiking Trails"]
   },
   {
     id: 6,
     name: "Sacred Valley Resort",
     location: "Kedarnath, India",
-    image: "/images/hotel-5.jpg",
+    image: "/images/hotel-6.jpg",
+    images: ["/images/room-13.jpg", "/images/room-14.jpg"],
     price: 1100,
     description: "Peaceful retreat in the sacred valley with meditation spaces.",
     rating: 4.4,
+    rooms: 1,
+    bathrooms: 1,
+    guests: 2,
     amenities: ["Temple Access", "Yoga Studio", "Vegetarian Restaurant", "Free WiFi"]
+  },
+  {
+    id: 7,
+    name: "Cityscape Suites",
+    location: "Mumbai, India",
+    image: "/images/hotel-7.jpg",
+    images: ["/images/room-15.jpg", "/images/room-16.jpg"],
+    price: 1600,
+    description: "Modern city center hotel with skyline views and top-notch amenities.",
+    rating: 4.2,
+    rooms: 1,
+    bathrooms: 1,
+    guests: 2,
+    amenities: ["Sky Lounge", "WiFi", "Fitness Center", "Airport Shuttle"]
+  },
+  {
+    id: 8,
+    name: "Jungle Retreat",
+    location: "Jim Corbett, India",
+    image: "/images/hotel-8.jpg",
+    images: ["/images/room-17.jpg", "/images/room-18.jpg"],
+    price: 950,
+    description: "Eco-lodge located at the edge of a national park with jungle safaris.",
+    rating: 4.3,
+    rooms: 2,
+    bathrooms: 1,
+    guests: 5,
+    amenities: ["Jungle Safari", "Bonfire", "Eco-friendly", "Nature Walks"]
   }
 ];

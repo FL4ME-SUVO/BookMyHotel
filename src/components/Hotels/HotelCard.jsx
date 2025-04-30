@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function HotelCard({ name, location, image, price, description, rating, amenities }) {
-  // Generate stars based on rating
+function HotelCard({ id, name, location, image, price, description, rating, amenities }) {
   const renderStars = () => {
     const stars = [];
     const fullStars = Math.floor(rating);
@@ -48,7 +48,9 @@ function HotelCard({ name, location, image, price, description, rating, amenitie
             <span className="hotel-rating-text">{rating} Rating</span>
           </div>
         </div>
-        <a href="#" className="hotel-link">Book Now</a>
+
+        {/* Update this anchor tag to Link */}
+        <Link to={`/hotels/${id}`} className="hotel-link">Book Now</Link>
       </div>
     </div>
   );

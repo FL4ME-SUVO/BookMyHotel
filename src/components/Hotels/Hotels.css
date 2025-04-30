@@ -7,11 +7,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
 }
 
 .hotel-card {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
+  max-width: 350px;
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
@@ -109,7 +111,6 @@
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  text-align: center;
   font-size: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -119,8 +120,8 @@
   background-color: #34c0e7;
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  color: white;
   text-decoration: none;
-  color: white; /* Ensure color remains white on hover */
 }
 
 .hotel-link:active {
@@ -128,22 +129,39 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Media Queries */
+/* Responsive Design */
 @media (max-width: 768px) {
   .hotels-grid {
     flex-direction: column;
+    gap: 1.5rem;
   }
-  
+
   .hotel-card {
     width: 100%;
   }
 }
-/* Additional styles for centering the "More.." button */
+
+@media (max-width: 480px) {
+  .hotel-content {
+    padding: 1rem;
+  }
+
+  .hotel-name {
+    font-size: 1.25rem;
+  }
+
+  .hotel-link {
+    width: 100%;
+    padding: 0.75rem;
+    text-align: center;
+  }
+}
+
+/* More Button Styles */
 .more-button-container {
   display: flex;
-  justify-content: center; /* Center the button horizontally */
-  margin-top: 3rem; /* Add some space above the button */
+  justify-content: center;
+  margin-top: 3rem;
 }
 
 .hotel-link-more {
@@ -160,12 +178,11 @@
 }
 
 .hotel-link-more:hover {
-  
   background-color: #34c0e7;
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  color: white;
   text-decoration: none;
-  color: white; 
 }
 
 .hotel-link-more:active {

@@ -4,9 +4,10 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Hotels from './pages/Hotels';
-import PageLoader from './components/PageLoader/PageLoader'; // adjust path if needed
+import SingleHotel from './pages/SingleHotel'; // ✅ ADD THIS LINE
+import PageLoader from './components/PageLoader/PageLoader';
 import Restaurant from './pages/Restaurant';
-import LoginSignup from './pages/Auth'
+import LoginSignup from './pages/Auth';
 
 function AppContent() {
   const location = useLocation();
@@ -15,10 +16,10 @@ function AppContent() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, loading ? 1000 : 400); // 1 second loading for initial load, 400ms for navigation
+    }, loading ? 1000 : 400);
 
     return () => clearTimeout(timer);
-  }, [location.pathname]); // Watch for the pathname change
+  }, [location.pathname]);
 
   return (
     <>
@@ -28,11 +29,11 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/hotels" element={<Hotels />} />
+          <Route path="/hotels/:id" element={<SingleHotel />} />
           <Route path="/restaurant" element={<Restaurant />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/auth" element={<LoginSignup />} />  {/* <<< Added here */}
+          <Route path="/auth" element={<LoginSignup />} />
         </Routes>
-
       </div>
     </>
   );

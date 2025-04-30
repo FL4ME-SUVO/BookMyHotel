@@ -16,6 +16,7 @@ function Hotels() {
           {hotels.map(hotel => (
             <HotelCard
               key={hotel.id}
+              id={hotel.id} // 👈 Add this line
               name={hotel.name}
               location={hotel.location}
               image={hotel.image}
