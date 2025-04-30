@@ -73,7 +73,7 @@ export const hotels = [
     id: 6,
     name: "Sacred Valley Resort",
     location: "Kedarnath, India",
-    image: "/images/hotel-6.jpg",
+    image: "/images/hotel-4.jpg",
     images: ["/images/room-13.jpg", "/images/room-14.jpg"],
     price: 1100,
     description: "Peaceful retreat in the sacred valley with meditation spaces.",
@@ -83,32 +83,32 @@ export const hotels = [
     guests: 2,
     amenities: ["Temple Access", "Yoga Studio", "Vegetarian Restaurant", "Free WiFi"]
   },
-  {
-    id: 7,
-    name: "Cityscape Suites",
-    location: "Mumbai, India",
-    image: "/images/hotel-7.jpg",
-    images: ["/images/room-15.jpg", "/images/room-16.jpg"],
-    price: 1600,
-    description: "Modern city center hotel with skyline views and top-notch amenities.",
-    rating: 4.2,
-    rooms: 1,
-    bathrooms: 1,
-    guests: 2,
-    amenities: ["Sky Lounge", "WiFi", "Fitness Center", "Airport Shuttle"]
-  },
-  {
-    id: 8,
-    name: "Jungle Retreat",
-    location: "Jim Corbett, India",
-    image: "/images/hotel-8.jpg",
-    images: ["/images/room-17.jpg", "/images/room-18.jpg"],
-    price: 950,
-    description: "Eco-lodge located at the edge of a national park with jungle safaris.",
-    rating: 4.3,
-    rooms: 2,
-    bathrooms: 1,
-    guests: 5,
-    amenities: ["Jungle Safari", "Bonfire", "Eco-friendly", "Nature Walks"]
-  }
+//   {
+//     id: 7,
+//     name: "Cityscape Suites",
+//     location: "Mumbai, India",
+//     image: "/images/hotel-7.jpg",
+//     images: ["/images/room-15.jpg", "/images/room-16.jpg"],
+//     price: 1600,
+//     description: "Modern city center hotel with skyline views and top-notch amenities.",
+//     rating: 4.2,
+//     rooms: 1,
+//     bathrooms: 1,
+//     guests: 2,
+//     amenities: ["Sky Lounge", "WiFi", "Fitness Center", "Airport Shuttle"]
+//   },
+//   {
+//     id: 8,
+//     name: "Jungle Retreat",
+//     location: "Jim Corbett, India",
+//     image: "/images/hotel-8.jpg",
+//     images: ["/images/room-17.jpg", "/images/room-18.jpg"],
+//     price: 950,
+//     description: "Eco-lodge located at the edge of a national park with jungle safaris.",
+//     rating: 4.3,
+//     rooms: 2,
+//     bathrooms: 1,
+//     guests: 5,
+//     amenities: ["Jungle Safari", "Bonfire", "Eco-friendly", "Nature Walks"]
+//   }
 ];
