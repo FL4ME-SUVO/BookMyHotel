@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const location = useLocation();  // Hook to get the current route
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +38,9 @@ function Navbar() {
     }
   };
 
+  // Function to check if the current route is active
+  const isActive = (path) => location.pathname === path ? 'active' : '';
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
@@ -60,8 +64,8 @@ function Navbar() {
           <ul className="navbar-nav">
             
             {/* Menu Dropdown */}
-            <li 
-              className="nav-item dropdown" 
+            <li
+              className="nav-item dropdown"
               onClick={toggleDropdown}
               onMouseEnter={openDropdown}
               onMouseLeave={closeDropdown}
@@ -72,37 +76,59 @@ function Navbar() {
               </span>
               <ul className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
                 <li>
-                  <Link to="/admin/login" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>Admin Login</Link>
+                  <Link to="/admin/login" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                    Admin Login
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/user/dashboard" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>User Dashboard</Link>
+                  <Link to="/user/dashboard" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                    User Dashboard
+                  </Link>
                 </li>
               </ul>
             </li>
 
+            {/* Navigation Links */}
             <li className="nav-item">
-              <Link to="/" className="nav-link active" onClick={() => setIsMenuOpen(false)}>Home</Link>
+              <Link to="/" className={`nav-link ${isActive('/')}`} onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
             </li>
 
             <li className="nav-item">
-              <Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About</Link>
+              <Link to="/about" className={`nav-link ${isActive('/about')}`} onClick={() => setIsMenuOpen(false)}>
+                About
+              </Link>
             </li>
+
             <li className="nav-item">
-              <Link to="/hotels" className="nav-link" onClick={() => setIsMenuOpen(false)}>Hotels</Link>
+              <Link to="/hotels" className={`nav-link ${isActive('/hotels')}`} onClick={() => setIsMenuOpen(false)}>
+                Hotels
+              </Link>
             </li>
+
             <li className="nav-item">
-              <Link to="/restaurant" className="nav-link" onClick={() => setIsMenuOpen(false)}>Restaurant</Link>
+              <Link to="/restaurant" className={`nav-link ${isActive('/restaurant')}`} onClick={() => setIsMenuOpen(false)}>
+                Restaurant
+              </Link>
             </li>
+
             <li className="nav-item">
-              <Link to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              <Link to="/contact" className={`nav-link ${isActive('/contact')}`} onClick={() => setIsMenuOpen(false)}>
+                Contact
+              </Link>
             </li>
 
             {/* Auth Links */}
             <li className="nav-item">
-              <Link to="/auth" className="nav-link btn-login" onClick={() => setIsMenuOpen(false)}>Log in</Link>
+              <Link to="/auth" className={`nav-link btn-login ${isActive('/auth')}`} onClick={() => setIsMenuOpen(false)}>
+                Log in
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/auth" className="nav-link btn-signup" onClick={() => setIsMenuOpen(false)}>Sign up</Link>
+              <Link to="/auth" className={`nav-link btn-signup ${isActive('/auth')}`} onClick={() => setIsMenuOpen(false)}>
+                Sign up
+              </Link>
             </li>
           </ul>
         </div>
