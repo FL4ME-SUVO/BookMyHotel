@@ -43,7 +43,7 @@ function Navbar() {
         
         {/* Logo */}
         <Link to="/" className="navbar-brand">
-          <img src="images/logo.png" alt="BookMyHotel" />
+          <img src="/images/logo.png" alt="BookMyHotel" />
         </Link>
 
         {/* Toggle Button */}

@@ -11,7 +11,7 @@ function SingleHotel() {
             <Hero2
                 backgroundImage="/images/bg_7.jpg"
                 breadcrumb="Home / Hotels / Single Hotel"
-                title="Hotels"
+                title="Hotel"
             />
             <main className="singlehotel-page">
                 <Single />

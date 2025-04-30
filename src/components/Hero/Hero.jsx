@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; 
 import './Hero.css';
 
 function Hero() {
@@ -121,14 +122,14 @@ function Hero() {
 
           <p className="browse-text">Or browse the highlights</p>
           <div className="browse-options">
-            <a href="#" className="browse-option">
+            <Link to="/restaurant" className="browse-option">
               <i className="fa-solid fa-utensils"></i>
               <span>Restaurant</span>
-            </a>
-            <a href="#" className="browse-option">
+            </Link>
+            <Link to="/hotels" className="browse-option">
               <i className="fa-solid fa-hotel"></i>
               <span>Hotel</span>
-            </a>
+            </Link>
             <a href="#" className="browse-option">
               <i className="fa-solid fa-location-dot"></i>
               <span>Places</span>

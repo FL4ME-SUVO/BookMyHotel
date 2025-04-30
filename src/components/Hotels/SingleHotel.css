@@ -1,32 +1,224 @@
+.single-hotel {
+  padding: 4rem 0;
+  background: #f9f9f9;
+}
+
 .single-hotel-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: auto;
-    max-width: 960px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.hotel-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.hotel-main {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hotel-title {
+  font-size: 2rem;
+  color: #222;
+}
+
+.hotel-location {
+  color: #777;
+  font-size: 0.95rem;
+}
+
+.hotel-room-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.hotel-description p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.hotel-info {
+  display: flex;
+  gap: 2rem;
+  font-size: 1rem;
+}
+
+.info-item h4 {
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+.hotel-amenities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hotel-amenities li {
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.hotel-booking .btn {
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.hotel-map iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+/* Right Column - Vertical Gallery */
+.hotel-gallery-vertical {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.room-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hotel-content-wrapper {
+    flex-direction: column;
   }
-  
-  .hotel-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .hotel-gallery img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .hotel-room-details {
-    display: flex;
+
+  .hotel-gallery-vertical {
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
-    margin: 1rem 0;
-    font-size: 0.95rem;
-    color: #444;
   }
-  
+
+  .gallery-item {
+    flex: 1 1 45%;
+  }
+}
+.main-hotel-image {
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.main-hotel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.single-hotel-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.hotel-main {
+  flex: 1.5;
+  min-width: 300px;
+}
+
+.room-gallery {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.room-image-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  background-color: #f9f9f9;
+}
+
+.room-image-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.room-label {
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  background-color: white;
+  color: #444;
+  text-align: center;
+}
+
+.main-hotel-image {
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.main-hotel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #34c0e7;
+}

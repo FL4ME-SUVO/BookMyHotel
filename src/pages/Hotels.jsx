@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Hero2 from '../components/Hero/Hero2';
-import Hotel from '../components/Hotels/Hotels'
+import MoreHotel from '../components/Hotels/MoreHotel'
 import Footer from '../components/Footer/Footer';
 import FilterBar from '../components/FilterBar/FilterBar';
 
@@ -15,7 +15,7 @@ function Hotels() {
                 title="Hotels"
             />
             <FilterBar />
-            <Hotel />
+            <MoreHotel />
             <Footer />
         </div>
     );
