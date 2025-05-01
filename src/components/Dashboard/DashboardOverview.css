@@ -721,3 +721,186 @@
 .revenue-legend::-webkit-scrollbar {
   width: 6px;
 }
+/* Add these styles to your existing CSS */
+
+/* Animated gradient backgrounds */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .metric-card {
+    background: linear-gradient(135deg, 
+      rgba(79, 70, 229, 0.1), 
+      rgba(16, 185, 129, 0.1), 
+      rgba(255, 255, 255, 0.3)
+    );
+    background-size: 400% 400%;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  
+  .metric-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+  
+  .metric-card:hover::before {
+    left: 100%;
+  }
+  
+  /* Animated chart elements */
+  .recharts-bar-rectangle {
+    transition: all 0.3s ease;
+  }
+  
+  .recharts-bar-rectangle:hover {
+    filter: brightness(1.1);
+    transform: scaleY(1.05);
+    transform-origin: bottom;
+  }
+  
+  /* Pulse animation for metrics */
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+  }
+  
+  .metric-icon-container {
+    animation: pulse-glow 2s infinite;
+  }
+  
+  /* Animated activity items */
+  .activity-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(
+      90deg,
+      var(--bg-secondary) 50%,
+      rgba(79, 70, 229, 0.05) 100%
+    );
+    background-size: 200% 200%;
+  }
+  
+  .activity-item:hover {
+    background-position: -100% 0;
+    transform: translateX(10px);
+  }
+  
+  /* Animated chart tabs */
+  .chart-tabs button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .chart-tabs button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .chart-tabs button.active::after {
+    transform: scaleX(1);
+  }
+  
+  /* Hover effect for pie chart segments */
+  .recharts-pie-sector {
+    transition: all 0.3s ease;
+  }
+  
+  .recharts-pie-sector:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+  }
+  
+  /* Animated live indicator */
+  @keyframes live-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+  
+  .live-indicator {
+    animation: live-pulse 1.5s infinite;
+  }
+  
+  /* Gradient text animation */
+  .metric-value {
+    background: linear-gradient(45deg, #4f46e5, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 5s ease infinite;
+  }
+  
+  /* Animated refresh button */
+  .refresh-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .refresh-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+  }
+  
+  /* Animated notification badge */
+  .notification-badge {
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Modern scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
