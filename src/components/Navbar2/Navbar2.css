@@ -48,10 +48,11 @@
 }
 
 .admin-top-navbar .logo {
-  height: 32px;
+  height: 48px; /* Increased from 32px */
   width: auto;
   object-fit: contain;
 }
+
 
 .admin-top-navbar .search-section {
   flex: 1;
@@ -94,8 +95,10 @@
 .admin-top-navbar .right-section {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 20rem;
+  margin-left: auto; /* Push to far right */
 }
+
 
 .admin-top-navbar .notifications {
   position: relative;

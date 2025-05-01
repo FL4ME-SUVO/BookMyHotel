@@ -34,7 +34,7 @@ function Navbar2({ toggleSidebar }) {
         </div>
         <div className="user-dropdown">
           <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="profile-button">
-            <img src="/Images/person-1.jpg" alt="Admin Profile" className="profile-pic" />
+            <img src="/Images/person_1.jpg" alt="Admin Profile" className="profile-pic" />
             <span className="user-name">Admin</span>
             <svg className="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M6 9l6 6 6-6" strokeWidth="2" strokeLinecap="round"/>
