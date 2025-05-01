@@ -7,6 +7,7 @@ import Hotels from './pages/Hotels';
 import SingleHotel from './pages/SingleHotel';
 import Restaurant from './pages/Restaurant';
 import LoginSignup from './pages/Auth';
+import AdminLogin from './pages/AdminLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import PageLoader from './components/PageLoader/PageLoader';
 
@@ -34,6 +35,7 @@ function AppContent() {
           <Route path="/restaurant" element={<Restaurant />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<LoginSignup />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </div>

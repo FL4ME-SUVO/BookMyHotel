@@ -67,16 +67,17 @@ function Navbar() {
                 <span className="dropdown-chevron">▼</span>
               </span>
               <ul className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
-                <li>
+                {/* <li>
                   <Link to="/admin" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     Admin Dashboard
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/admin/login" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     Admin Login
-                  </Link>
+                    </Link>
                 </li>
+
                 <li>
                   <Link to="/user/dashboard" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     User Dashboard
