@@ -48,10 +48,8 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard">
       <Navbar2 toggleSidebar={toggleSidebar} />
-      <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
-        <Sidebar setCurrentSection={setCurrentSection} />
-      </div>
-      <div className="main-content">
+      <Sidebar setCurrentSection={setCurrentSection} isSidebarOpen={isSidebarOpen} />
+      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         {renderSection()}
       </div>
     </div>

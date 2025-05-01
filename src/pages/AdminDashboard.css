@@ -44,3 +44,14 @@
       margin-left: 0;
     }
   }
+  .main-content {
+    transition: margin-left 0.3s ease;
+  }
+  
+  .main-content.sidebar-open {
+    margin-left: 250px;
+  }
+  
+  .main-content.sidebar-closed {
+    margin-left: 80px;
+  }

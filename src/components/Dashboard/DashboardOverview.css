@@ -623,3 +623,101 @@
       text-align: center;
     }
   }
+  /* Add these fixes to the existing CSS */
+
+/* Fix 1: Main chart section height adjustment */
+.chart-container {
+  height: 420px; /* Increased from 400px */
+  padding: 1.5rem 0; /* Adjusted padding */
+}
+
+/* Fix 2: Metric card alignment */
+.metric-content {
+  margin-bottom: 1rem; /* Reduced from 1.5rem */
+}
+
+.metric-value {
+  margin-bottom: 0.5rem; /* Increased spacing */
+}
+
+/* Fix 3: Time filter button alignment */
+.time-filter button {
+  padding: 0.5rem 1.2rem; /* More balanced padding */
+  margin-left: 0.75rem; /* Increased spacing */
+}
+
+/* Fix 4: Chart tab active state */
+.chart-tabs button.active::after {
+  height: 3px; /* Thicker active indicator */
+  bottom: -2px;
+}
+
+/* Fix 5: Real-time stats grid alignment */
+.stats-grid {
+  gap: 1.2rem; /* Better spacing */
+}
+
+.stat-item {
+  padding: 1.2rem; /* More balanced padding */
+}
+
+/* Fix 6: Activity item text overflow */
+.activity-text {
+  white-space: normal; /* Changed from nowrap */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Fix 7: Metric sparkline visibility */
+.metric-sparkline {
+  height: 3rem; /* Increased from 2.5rem */
+  margin-top: 0.5rem;
+}
+
+/* Fix 8: Radar chart label visibility */
+.recharts-polar-angle-axis-tick-value {
+  fill: var(--text-primary) !important;
+  font-size: 0.875rem;
+}
+
+/* Fix 9: Tooltip consistency */
+.recharts-tooltip-wrapper {
+  font-family: 'Inter' !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Fix 10: Mobile optimization */
+@media (max-width: 768px) {
+  .metric-card {
+    padding: 1.2rem;
+  }
+  
+  .chart-tabs button {
+    padding: 0.8rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .activity-item {
+    padding: 0.8rem;
+  }
+}
+
+/* Fix 11: Color contrast improvements */
+.metric-change.up {
+  color: var(--secondary-dark); /* Darker green */
+}
+
+.metric-change.down {
+  color: var(--danger); /* Brighter red */
+}
+
+/* Fix 12: Scrollbar styling */
+.revenue-legend {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.revenue-legend::-webkit-scrollbar {
+  width: 6px;
+}
