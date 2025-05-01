@@ -4,10 +4,11 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Hotels from './pages/Hotels';
-import SingleHotel from './pages/SingleHotel'; // ✅ ADD THIS LINE
-import PageLoader from './components/PageLoader/PageLoader';
+import SingleHotel from './pages/SingleHotel';
 import Restaurant from './pages/Restaurant';
 import LoginSignup from './pages/Auth';
+import AdminDashboard from './pages/AdminDashboard';
+import PageLoader from './components/PageLoader/PageLoader';
 
 function AppContent() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function AppContent() {
           <Route path="/restaurant" element={<Restaurant />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<LoginSignup />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </div>
     </>

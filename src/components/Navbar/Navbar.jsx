@@ -6,7 +6,7 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const location = useLocation();  // Hook to get the current route
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +25,6 @@ function Navbar() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  // For desktop hover behavior
   const openDropdown = () => {
     if (window.innerWidth > 991) {
       setIsDropdownOpen(true);
@@ -38,19 +37,15 @@ function Navbar() {
     }
   };
 
-  // Function to check if the current route is active
   const isActive = (path) => location.pathname === path ? 'active' : '';
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        
-        {/* Logo */}
         <Link to="/" className="navbar-brand">
           <img src="/images/logo.png" alt="BookMyHotel" />
         </Link>
 
-        {/* Toggle Button */}
         <button
           className="navbar-toggler"
           onClick={toggleMenu}
@@ -59,11 +54,8 @@ function Navbar() {
           <span className={`navbar-toggler-icon ${isMenuOpen ? 'open' : ''}`}></span>
         </button>
 
-        {/* Navigation Links */}
         <div className={`navbar-collapse ${isMenuOpen ? 'show' : ''}`}>
           <ul className="navbar-nav">
-            
-            {/* Menu Dropdown */}
             <li
               className="nav-item dropdown"
               onClick={toggleDropdown}
@@ -72,9 +64,14 @@ function Navbar() {
             >
               <span className="nav-link">
                 Menu
-                <span className="dropdown-chevron">&#9660;</span>
+                <span className="dropdown-chevron">▼</span>
               </span>
               <ul className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
+                <li>
+                  <Link to="/admin" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                    Admin Dashboard
+                  </Link>
+                </li>
                 <li>
                   <Link to="/admin/login" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     Admin Login
@@ -88,7 +85,6 @@ function Navbar() {
               </ul>
             </li>
 
-            {/* Navigation Links */}
             <li className="nav-item">
               <Link to="/" className={`nav-link ${isActive('/')}`} onClick={() => setIsMenuOpen(false)}>
                 Home
@@ -119,7 +115,6 @@ function Navbar() {
               </Link>
             </li>
 
-            {/* Auth Links */}
             <li className="nav-item">
               <Link to="/auth" className={`nav-link btn-login ${isActive('/auth')}`} onClick={() => setIsMenuOpen(false)}>
                 Log in
