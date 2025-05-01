@@ -29,36 +29,46 @@ function BookingManagement() {
   };
 
   return (
-    <div className="booking-management">
-      <h1>Booking Management</h1>
-      <div className="table-container">
-        <table>
+    <div className="booking-management__container">
+      <h1 className="booking-management__title">Booking Management</h1>
+      <div className="booking-management__table-wrapper">
+        <table className="booking-management__table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>User</th>
-              <th>Hotel</th>
-              <th>Status</th>
-              <th className="actions-header">Actions</th>
+              <th className="booking-management__th">ID</th>
+              <th className="booking-management__th">User</th>
+              <th className="booking-management__th">Hotel</th>
+              <th className="booking-management__th">Status</th>
+              <th className="booking-management__th">Actions</th>
             </tr>
           </thead>
           <tbody>
             {bookings.map((booking) => (
-              <tr key={booking.id}>
-                <td>{booking.id}</td>
-                <td>{booking.user}</td>
-                <td>{booking.hotel}</td>
-                <td className={`status ${booking.status.toLowerCase()}`}>
+              <tr className="booking-management__row" key={booking.id}>
+                <td className="booking-management__td">{booking.id}</td>
+                <td className="booking-management__td">{booking.user}</td>
+                <td className="booking-management__td">{booking.hotel}</td>
+                <td className={`booking-management__td booking-management__status--${booking.status.toLowerCase()}`}>
                   {booking.status}
                 </td>
-                <td className="actions-cell">
+                <td className="booking-management__td booking-management__td-actions">
                   {booking.status !== 'Cancelled' ? (
                     <>
-                      <button onClick={() => handleCancel(booking.id)}>Cancel</button>
-                      <button onClick={() => handleModify(booking.id)}>Modify</button>
+                      <button
+                        onClick={() => handleCancel(booking.id)}
+                        className="booking-management__cancel-btn"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => handleModify(booking.id)}
+                        className="booking-management__modify-btn"
+                      >
+                        Modify
+                      </button>
                     </>
                   ) : (
-                    <span className="na-label">N/A</span>
+                    <span className="booking-management__na-label">N/A</span>
                   )}
                 </td>
               </tr>
@@ -67,6 +77,7 @@ function BookingManagement() {
         </table>
       </div>
     </div>
+
   );
 }
 

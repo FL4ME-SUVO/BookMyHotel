@@ -1,35 +1,78 @@
-.user-management {
-    padding: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #333;
-    color: white;
-  }
-  
-  button {
-    background-color: #ff6200;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  /* button:hover {
-    background-color: #e55a00;
-  } */
+/* Unique namespace for this page: user-management__ */
+
+.user-management__container {
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.user-management__title {
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}
+
+.user-management__table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.user-management__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-management__th {
+  padding: 14px 16px;
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.user-management__td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.user-management__row:hover {
+  background-color: #fafafa;
+}
+
+.user-management__td-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.user-management__block-btn,
+.user-management__role-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.user-management__block-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.user-management__block-btn:hover {
+  background-color: #c82333;
+}
+
+.user-management__role-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.user-management__role-btn:hover {
+  background-color: #0056b3;
+}
