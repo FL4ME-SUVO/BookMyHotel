@@ -5,8 +5,9 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart,
   PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ComposedChart, Scatter
 } from 'recharts';
-import { FiRefreshCw, FiCalendar, FiUsers, FiHome, FiDollarSign, FiBookmark, 
+import { FiRefreshCw, FiCalendar, FiUsers, FiHome, FiBookmark, 
          FiArrowUp, FiArrowDown, FiChevronRight, FiActivity, FiAlertCircle } from 'react-icons/fi';
+import { BiRupee } from 'react-icons/bi'; // Added Rupee icon import
 import { motion } from 'framer-motion';
 
 // Mock data
@@ -63,7 +64,7 @@ function DashboardOverview() {
     { icon: <FiUsers className="metric-icon" />, title: 'Total Users', value: '1,234', change: '+15%', trend: 'up' },
     { icon: <FiBookmark className="metric-icon" />, title: 'Total Bookings', value: '567', change: '+8%', trend: 'up' },
     { icon: <FiHome className="metric-icon" />, title: 'Total Hotels', value: '89', change: '+3%', trend: 'up' },
-    { icon: <FiDollarSign className="metric-icon" />, title: 'Total Revenue', value: '$123,456', change: '+22%', trend: 'up' },
+    { icon: <BiRupee className="metric-icon" />, title: 'Total Revenue', value: '₹123,456', change: '+22%', trend: 'up' },
   ];
 
   const activities = [
@@ -245,7 +246,7 @@ function DashboardOverview() {
                     ))}
                   </Pie>
                   <Tooltip 
-                    formatter={(value) => [`$${value.toLocaleString()}`, 'Revenue']}
+                    formatter={(value) => [`₹${value.toLocaleString()}`, 'Revenue']}
                     contentStyle={{
                       background: 'rgba(255, 255, 255, 0.96)',
                       border: 'none',
@@ -263,7 +264,7 @@ function DashboardOverview() {
                     <span className="legend-color" style={{backgroundColor: COLORS[index]}}></span>
                     <div className="legend-details">
                       <span className="legend-name">{entry.name}</span>
-                      <span className="legend-value">${entry.value.toLocaleString()}</span>
+                      <span className="legend-value">₹{entry.value.toLocaleString()}</span>
                     </div>
                   </div>
                 ))}
@@ -398,7 +399,7 @@ function DashboardOverview() {
                   {activity.type === 'booking' && <FiBookmark />}
                   {activity.type === 'check-in' && <FiHome />}
                   {activity.type === 'cancel' && <FiAlertCircle />}
-                  {activity.type === 'payment' && <FiDollarSign />}
+                  {activity.type === 'payment' && <BiRupee />}
                   {activity.type === 'review' && '⭐'}
                 </div>
                 <div className="activity-content">

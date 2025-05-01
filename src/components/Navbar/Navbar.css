@@ -1,12 +1,4 @@
-:root {
-  --primary-color: #f85959;
-  --dark-color: #222;
-  --light-color: #fff;
-  --hover-color: #e24e4e;
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
 
-/* Base Navbar Styles */
 .navbar {
   position: fixed;
   top: 0;

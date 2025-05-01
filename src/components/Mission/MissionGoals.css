@@ -20,11 +20,12 @@
 
 .tabs-right button {
   background: none; 
-  border: 1px solid #ddd; 
+  border: 1px solid #766e6e; 
   padding: 10px 20px; 
   margin-left: 10px; 
   font-size: 1rem; 
   cursor: pointer; 
+  color: #222;
   border-radius: 30px; /* More rounded corners */
   transition: all 0.3s ease; 
   position: relative; /* For hover effects */

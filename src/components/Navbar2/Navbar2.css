@@ -1,4 +1,4 @@
-/* Modern Navbar CSS */
+/* Modern Admin Navbar CSS with Improved Specificity */
 .admin-top-navbar {
   display: flex;
   justify-content: space-between;
@@ -10,17 +10,16 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  font-family: 'Inter', sans-serif;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.left-section {
+.admin-top-navbar .left-section {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.sidebar-toggle {
+.admin-top-navbar .sidebar-toggle {
   background: none;
   border: none;
   cursor: pointer;
@@ -33,39 +32,39 @@
   justify-content: center;
 }
 
-.sidebar-toggle:hover {
+.admin-top-navbar .sidebar-toggle:hover {
   background-color: #f3f4f6;
   color: #111827;
 }
 
-.sidebar-toggle svg {
+.admin-top-navbar .sidebar-toggle svg {
   width: 1.25rem;
   height: 1.25rem;
 }
 
-.branding {
+.admin-top-navbar .branding {
   display: flex;
   align-items: center;
 }
 
-.logo {
+.admin-top-navbar .logo {
   height: 32px;
   width: auto;
   object-fit: contain;
 }
 
-.search-section {
+.admin-top-navbar .search-section {
   flex: 1;
   max-width: 500px;
   margin: 0 2rem;
 }
 
-.search-container {
+.admin-top-navbar .search-container {
   position: relative;
   width: 100%;
 }
 
-.search-icon {
+.admin-top-navbar .search-icon {
   position: absolute;
   left: 0.75rem;
   top: 50%;
@@ -74,7 +73,7 @@
   pointer-events: none;
 }
 
-.search-input {
+.admin-top-navbar .search-input {
   width: 100%;
   padding: 0.625rem 1rem 0.625rem 2.5rem;
   border: 1px solid #e5e7eb;
@@ -85,31 +84,31 @@
   transition: all 0.2s ease;
 }
 
-.search-input:focus {
+.admin-top-navbar .search-input:focus {
   outline: none;
   border-color: #6366f1;
   background-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.right-section {
+.admin-top-navbar .right-section {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.notifications {
+.admin-top-navbar .notifications {
   position: relative;
   cursor: pointer;
   color: #4b5563;
   transition: color 0.2s ease;
 }
 
-.notifications:hover {
+.admin-top-navbar .notifications:hover {
   color: #111827;
 }
 
-.notification-badge {
+.admin-top-navbar .notification-badge {
   position: absolute;
   top: -0.25rem;
   right: -0.25rem;
@@ -125,11 +124,11 @@
   font-weight: 600;
 }
 
-.user-dropdown {
+.admin-top-navbar .user-dropdown {
   position: relative;
 }
 
-.profile-button {
+.admin-top-navbar .profile-button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -141,11 +140,11 @@
   transition: all 0.2s ease;
 }
 
-.profile-button:hover {
+.admin-top-navbar .profile-button:hover {
   background-color: #f3f4f6;
 }
 
-.profile-pic {
+.admin-top-navbar .profile-pic {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -153,22 +152,22 @@
   border: 2px solid #e5e7eb;
 }
 
-.user-name {
+.admin-top-navbar .user-name {
   font-size: 0.875rem;
   font-weight: 500;
   color: #111827;
 }
 
-.dropdown-icon {
+.admin-top-navbar .dropdown-icon {
   color: #6b7280;
   transition: transform 0.2s ease;
 }
 
-.user-dropdown:hover .dropdown-icon {
+.admin-top-navbar .user-dropdown:hover .dropdown-icon {
   transform: rotate(180deg);
 }
 
-.dropdown-menu {
+.admin-top-navbar .dropdown-menu {
   position: absolute;
   right: 0;
   top: 100%;
@@ -182,11 +181,11 @@
   overflow: hidden;
 }
 
-.dropdown-menu li {
+.admin-top-navbar .dropdown-menu li {
   padding: 0;
 }
 
-.dropdown-menu a {
+.admin-top-navbar .dropdown-menu a {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -197,18 +196,18 @@
   transition: all 0.2s ease;
 }
 
-.dropdown-menu a:hover {
+.admin-top-navbar .dropdown-menu a:hover {
   background-color: #f9fafb;
   color: #111827;
 }
 
-.dropdown-menu a svg {
+.admin-top-navbar .dropdown-menu a svg {
   width: 1rem;
   height: 1rem;
   color: #9ca3af;
 }
 
-.dropdown-menu li:not(:last-child) {
+.admin-top-navbar .dropdown-menu li:not(:last-child) {
   border-bottom: 1px solid #f3f4f6;
 }
 
@@ -216,12 +215,12 @@
   .admin-top-navbar {
     padding: 0 1rem;
   }
-
-  .search-section {
+  
+  .admin-top-navbar .search-section {
     display: none;
   }
-
-  .right-section {
+  
+  .admin-top-navbar .right-section {
     gap: 1rem;
   }
 }

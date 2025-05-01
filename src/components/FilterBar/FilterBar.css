@@ -51,7 +51,8 @@
 }
 
 /* Input Styles */
-select, input[type="date"] {
+select,
+input[type="date"] {
   padding: 0.75rem 1rem;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
@@ -62,7 +63,8 @@ select, input[type="date"] {
   transition: all 0.2s ease;
 }
 
-select:focus, input[type="date"]:focus {
+select:focus,
+input[type="date"]:focus {
   outline: 2px solid #F85959;
   outline-offset: -2px;
   border-color: #F85959;
@@ -139,7 +141,8 @@ select:focus, input[type="date"]:focus {
   transition: all 0.2s ease;
 }
 
-.search-button:hover, .search-button:focus {
+.search-button:hover,
+.search-button:focus {
   background: #F85959;
   transform: translateY(-1px);
   outline: 2px solid #F85959;
@@ -151,20 +154,25 @@ select:focus, input[type="date"]:focus {
   height: 1rem;
 }
 
+.search-button i {
+  color: #ffffff;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .filter-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .price-range-group {
     grid-column: span 1;
   }
-  
+
   .filter-title {
     font-size: 1.5rem;
   }
 }
+
 /* Add these new styles to your existing CSS */
 .rating-select {
   padding: 0.75rem 1rem;
@@ -182,12 +190,7 @@ select:focus, input[type="date"]:focus {
   background-size: 1rem;
 }
 
-/* .rating-select:focus {
-  outline: 2px solid #F85959;
-  outline-offset: -2px;
-  border-color: #F85959;
-  box-shadow: 0 0 0 4px rgba(248, 89, 89, 0.2);
-} */
+
 
 .rating-select option {
   padding: 0.5rem;
@@ -195,10 +198,24 @@ select:focus, input[type="date"]:focus {
 }
 
 /* Star color in dropdown */
-.rating-select option[value="5"] { color: gold; }
-.rating-select option[value="4"] { color: gold; }
-.rating-select option[value="3"] { color: gold; }
-.rating-select option[value="2"] { color: gold; }
-.rating-select option[value="1"] { color: gold; }
+.rating-select option[value="5"] {
+  color: gold;
+}
+
+.rating-select option[value="4"] {
+  color: gold;
+}
+
+.rating-select option[value="3"] {
+  color: gold;
+}
+
+.rating-select option[value="2"] {
+  color: gold;
+}
+
+.rating-select option[value="1"] {
+  color: gold;
+}
 
 /* Existing styles remain the same */

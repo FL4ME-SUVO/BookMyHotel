@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Sidebar.css';
 
 function Sidebar({ setCurrentSection, isSidebarOpen }) {
+  const [activeSection, setActiveSection] = useState('dashboard');
+  
   const sections = [
     { name: 'Dashboard', key: 'dashboard', icon: '📊' },
     { name: 'Hotels', key: 'hotels', icon: '🏨' },
@@ -16,8 +18,13 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
   ];
 
   const sidebarVariants = {
-    open: { width: 250 },
-    closed: { width: 80 }
+    open: { width: 240 },
+    closed: { width: 72 }
+  };
+
+  const handleSectionClick = (key) => {
+    setActiveSection(key);
+    setCurrentSection(key);
   };
 
   return (
@@ -26,12 +33,17 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
       initial={false}
       animate={isSidebarOpen ? "open" : "closed"}
       variants={sidebarVariants}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
       <div className="sidebar-header">
-        <h2 className="sidebar-title">
-          {isSidebarOpen ? 'Admin Panel' : 'AP'}
-        </h2>
+        <motion.div 
+          className="logo"
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          {isSidebarOpen ? 'Admin' : 'A'}
+        </motion.div>
       </div>
 
       <div className="sidebar-content">
@@ -39,19 +51,26 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
           {sections.map((section) => (
             <li
               key={section.key}
-              className="sidebar-item"
-              onClick={() => setCurrentSection(section.key)}
+              className={`sidebar-item ${activeSection === section.key ? 'active' : ''}`}
+              onClick={() => handleSectionClick(section.key)}
             >
-              <span className="sidebar-icon">{section.icon}</span>
+              <div className="sidebar-icon">{section.icon}</div>
               {isSidebarOpen && (
                 <motion.span
                   className="sidebar-text"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.2 }}
                 >
                   {section.name}
                 </motion.span>
+              )}
+              {activeSection === section.key && (
+                <motion.div
+                  className="active-indicator"
+                  layoutId="activeIndicator"
+                  transition={{ duration: 0.2 }}
+                />
               )}
             </li>
           ))}
