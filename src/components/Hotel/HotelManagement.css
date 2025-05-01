@@ -1,49 +1,95 @@
-.hotel-management {
-    padding: 20px;
-  }
-  
-  .add-button {
-    background-color: #ff6200;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  .add-button:hover {
-    background-color: #e55a00;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #333;
-    color: white;
-  }
-  
-  button {
-    background-color: #ff6200;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  /* button:hover {
-    background-color: #e55a00;
-  } */
+/* Unique namespace for this page: hotel-management__ */
+
+.hotel-management__container {
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.hotel-management__title {
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #222;
+}
+
+.hotel-management__add-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.hotel-management__add-btn:hover {
+  background-color: #0056b3;
+}
+
+.hotel-management__table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  background-color: #fff;
+}
+
+.hotel-management__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hotel-management__th {
+  padding: 14px 16px;
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.hotel-management__td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.hotel-management__row:hover {
+  background-color: #fafafa;
+}
+
+.hotel-management__td-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.hotel-management__edit-btn,
+.hotel-management__delete-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.hotel-management__edit-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.hotel-management__edit-btn:hover {
+  background-color: #218838;
+}
+
+.hotel-management__delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.hotel-management__delete-btn:hover {
+  background-color: #c82333;
+}
