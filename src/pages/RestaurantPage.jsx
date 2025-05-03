@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Hero2 from '../components/Hero/Hero2';
+import FilterBar from '../components/FilterBar/FilterBar';
 import Footer from '../components/Footer/Footer';
-import RestaurantList from '../components/Restaurant/Restaurant'; // renamed for clarity
+import RestaurantList from '../components/Restaurant/Restaurant'; 
 
 function RestaurantPage() {
     return (
@@ -13,6 +14,7 @@ function RestaurantPage() {
                 breadcrumb="Home / Restaurant"
                 title="Restaurant"
             />
+            <FilterBar />
             <RestaurantList /> {/* render the list of restaurants */}
             <Footer />
         </div>
