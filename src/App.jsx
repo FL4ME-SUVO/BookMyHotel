@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Hotels from './pages/Hotels';
 import SingleHotel from './pages/SingleHotel';
-import Restaurant from './pages/Restaurant';
+import RestaurantPage from './pages/RestaurantPage';
 import LoginSignup from './pages/Auth';
 import AdminLogin from './pages/AdminLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
+
 import PageLoader from './components/PageLoader/PageLoader';
 
 function AppContent() {
@@ -16,9 +18,11 @@ function AppContent() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Show loader briefly on route change
+    setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, loading ? 1000 : 400);
+    }, 1000); // Show loader for 1 second
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -32,7 +36,7 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/hotels/:id" element={<SingleHotel />} />
-          <Route path="/restaurant" element={<Restaurant />} />
+          <Route path="/restaurant" element={<RestaurantPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<LoginSignup />} />
           <Route path="/admin/login" element={<AdminLogin />} />
