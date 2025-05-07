@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Hero2 from '../components/Hero/Hero2';
-import FilterBar from '../components/FilterBar/FilterBar';
+import FilterBar from '../components/FilterBar/RestaurantFilterBar';
 import Footer from '../components/Footer/Footer';
 import RestaurantList from '../components/Restaurant/Restaurant'; 
 

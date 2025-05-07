@@ -217,5 +217,22 @@ input[type="date"]:focus {
 .rating-select option[value="1"] {
   color: gold;
 }
+input[type="time"] {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #1a202c;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+input[type="time"]:focus {
+  outline: 2px solid #F85959;
+  outline-offset: -2px;
+  border-color: #F85959;
+  box-shadow: 0 0 0 4px rgba(224, 48, 48, 0.2);
+}
 
 /* Existing styles remain the same */
