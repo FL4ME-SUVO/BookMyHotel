@@ -31,7 +31,7 @@ export const hotels = [
     id: 3,
     name: "Beach Paradise Hotel",
     location: "Goa, India",
-    image: "/images/hotel-3.jpg",
+    image: "/Images/hotel-3.jpg",
     images: ["/Images/room-6.jpg", "/Images/room-7.jpg", "/Images/room-8.jpg"],
     price: 880,
     description: "Beachfront property with direct access to the white sands of Goa.",

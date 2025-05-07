@@ -56,7 +56,7 @@ const FunFactsSection = () => {
       className="ftco-section ftco-counter img"
       id="section-counter"
       ref={sectionRef}  // Add the reference here
-      style={{ backgroundImage: 'url(images/bg_4.jpg)' }}
+      style={{ backgroundImage: 'url(Images/bg_4.jpg)' }}
     >
       <div className="container">
         <div className="heading-wrapper">

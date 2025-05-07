@@ -76,7 +76,7 @@ function LoginSignup() {
   return (
     <div
       className="auth-page"
-      style={{ backgroundImage: "url('/images/bg_11.jpg')" }}
+      style={{ backgroundImage: "url('/Images/bg_11.jpg')" }}
     >
       <div className="background-overlay"></div>
 

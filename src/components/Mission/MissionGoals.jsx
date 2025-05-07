@@ -33,7 +33,7 @@ function MissionGoals() {
         {/* Content */}
         <div className="mission-goals-content">
           <div className="mission-goals-image">
-            <img src="/images/about.jpeg" alt="Handshake" />
+            <img src="/Images/about.jpeg" alt="Handshake" />
           </div>
           <div className="mission-goals-text">
             {activeTab === 'mission' && (
