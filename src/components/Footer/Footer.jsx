@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
-
+  
   return (
     <footer className="footer">
       <div className="container">
@@ -11,24 +11,24 @@ function Footer() {
           <div className="footer-column footer-about">
             <h3 className="footer-title">About BookMyHotel</h3>
             <p>
-              Far far away, beyond the Aravalli hills and the backwaters of Kerala, far from the bustling cities of Bharat, there wait the hidden stays and untold escapes — waiting to be discovered with BookMyHotel.
+            Far beyond the Aravallis and Kerala's backwaters, away from the city's rush, hidden stays await — discover them with BookMyHotel.
             </p>
             <div className="footer-social">
               <a href="#" className="footer-social-icon">
-                <i className="fa-brands fa-facebook-f"></i>
+              <i className="fa-brands fa-facebook-f"></i>
               </a>
               <a href="#" className="footer-social-icon">
-                <i className="fa-brands fa-x-twitter"></i>
+              <i className="fa-brands fa-x-twitter"></i>
               </a>
               <a href="#" className="footer-social-icon">
-                <i className="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram"></i>
               </a>
               <a href="#" className="footer-social-icon">
-                <i className="fa-brands fa-linkedin-in"></i>
+              <i className="fa-brands fa-linkedin-in"></i>
               </a>
             </div>
           </div>
-
+          
           <div className="footer-column">
             <h3 className="footer-title">Information</h3>
             <ul className="footer-links">
@@ -49,7 +49,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-
+          
           <div className="footer-column">
             <h3 className="footer-title">Customer Support</h3>
             <ul className="footer-links">
@@ -70,13 +70,13 @@ function Footer() {
               </li>
             </ul>
           </div>
-
+          
           <div className="footer-column">
             <h3 className="footer-title">Have a Questions?</h3>
             <div className="footer-contact">
               <div className="footer-contact-item">
                 <div className="footer-contact-icon">
-                  <i className="fa-solid fa-location-dot"></i>
+                <i className="fa-solid fa-location-dot"></i>
                 </div>
                 <div className="footer-contact-text">
                   NH17, Namkhana, India
@@ -84,7 +84,7 @@ function Footer() {
               </div>
               <div className="footer-contact-item">
                 <div className="footer-contact-icon">
-                  <i className="fa-solid fa-phone"></i>
+                <i className="fa-solid fa-phone"></i>
                 </div>
                 <div className="footer-contact-text">
                   +91 7407969835
@@ -92,14 +92,14 @@ function Footer() {
               </div>
               <div className="footer-contact-item">
                 <div className="footer-contact-icon">
-                  <i className="fa-solid fa-envelope"></i>
+                <i className="fa-solid fa-envelope"></i>
                 </div>
                 <div className="footer-contact-text">
                   shubhajit.giri@tnu.in
                 </div>
               </div>
             </div>
-
+            
             <div className="footer-subscribe">
               <form className="footer-subscribe-form">
                 <input type="email" className="footer-subscribe-input" placeholder="Your Email" />
@@ -108,7 +108,7 @@ function Footer() {
             </div>
           </div>
         </div>
-
+        
         <div className="footer-copyright">
           <p>Copyright &copy; {currentYear} All rights reserved | BookMyHotel</p>
         </div>
