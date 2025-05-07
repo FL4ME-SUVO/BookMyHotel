@@ -85,7 +85,7 @@ function Hero() {
   };
 
   return (
-    <div className="hero-section" style={{ backgroundImage: "url('/Images/bg_1.jpg')" }}>
+    <div className="hero-section" style={{ backgroundImage: "url('/images/bg_1.jpg')" }}>
       <div className="hero-overlay"></div>
       <div className="container">
         <div className="hero-content">
