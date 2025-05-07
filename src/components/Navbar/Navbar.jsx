@@ -43,7 +43,7 @@ function Navbar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-brand">
-          <img src="./images/logo.png" alt="BookMyHotel" />
+          <img src="/images/logo.png" alt="BookMyHotel" />
         </Link>
 
         <button
