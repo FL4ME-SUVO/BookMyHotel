@@ -10,7 +10,7 @@ function About() {
         <div className="about-page">
             <Navbar />
             <Hero2 
-                backgroundImage="/images/bg_5.jpg" 
+                backgroundImage="/Images/bg_5.jpg" 
                 breadcrumb="Home / About" 
                 title="About Us" 
             />

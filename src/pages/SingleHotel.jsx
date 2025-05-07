@@ -9,7 +9,7 @@ function SingleHotel() {
         <>
             <Navbar />
             <Hero2
-                backgroundImage="/images/bg_7.jpg"
+                backgroundImage="/Images/bg_7.jpg"
                 breadcrumb="Home / Hotels / Single Hotel"
                 title="Hotel"
             />

@@ -10,7 +10,7 @@ function RestaurantPage() {
         <div className="restaurant-page">
             <Navbar />
             <Hero2
-                backgroundImage="/images/bg_10.jpg"
+                backgroundImage="/Images/bg_10.jpg"
                 breadcrumb="Home / Restaurant"
                 title="Restaurant"
             />

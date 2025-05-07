@@ -9,7 +9,7 @@ function Contact() {
         <div className="contact-page">
             <Navbar />
             <Hero2
-                backgroundImage="/images/bg_9.jpg"
+                backgroundImage="/Images/bg_9.jpg"
                 breadcrumb="Home / Contact"
                 title="Contact Us"
             />
