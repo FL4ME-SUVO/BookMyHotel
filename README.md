@@ -1,4 +1,4 @@
-# BookMyHotel - React Landing Page
+# BookMyHotel - React Page
 
 A clean, responsive landing page for BookMyHotel built with React and pure CSS (no Tailwind or other CSS frameworks).
 
