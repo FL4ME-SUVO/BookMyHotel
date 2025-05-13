@@ -10,6 +10,7 @@ import RestaurantPage from './pages/RestaurantPage';
 import LoginSignup from './pages/Auth';
 import AdminLogin from './pages/AdminLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
+import HotelLoginSignupPage from './pages/HotelLoginSignupPage';
 
 import PageLoader from './components/PageLoader/PageLoader';
 
@@ -18,11 +19,10 @@ function AppContent() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Show loader briefly on route change
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // Show loader for 1 second
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -41,6 +41,7 @@ function AppContent() {
           <Route path="/auth" element={<LoginSignup />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/hotel/auth" element={<HotelLoginSignupPage />} />
         </Routes>
       </div>
     </>

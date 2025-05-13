@@ -206,8 +206,8 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   list-style: none;
-  padding: 0.5rem 0;
-  width: 220px; /* Slightly wider */
+  padding: 0.3rem 0;
+  width: 190px; /* Slightly wider */
   z-index: 1000;
   opacity: 0;
   visibility: hidden;

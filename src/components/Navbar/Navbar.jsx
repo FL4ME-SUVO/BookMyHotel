@@ -5,14 +5,14 @@ import './Navbar.css';
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
+  const [isSignupDropdownOpen, setIsSignupDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -21,19 +21,41 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const openDropdown = () => {
-    if (window.innerWidth > 991) {
-      setIsDropdownOpen(true);
+  // Menu dropdown
+  const toggleMenuDropdown = () => {
+    if (window.innerWidth <= 991) {
+      setIsMenuDropdownOpen(!isMenuDropdownOpen);
     }
   };
 
-  const closeDropdown = () => {
+  const openMenuDropdown = () => {
     if (window.innerWidth > 991) {
-      setIsDropdownOpen(false);
+      setIsMenuDropdownOpen(true);
+    }
+  };
+
+  const closeMenuDropdown = () => {
+    if (window.innerWidth > 991) {
+      setIsMenuDropdownOpen(false);
+    }
+  };
+
+  // Signup dropdown
+  const toggleSignupDropdown = () => {
+    if (window.innerWidth <= 991) {
+      setIsSignupDropdownOpen(!isSignupDropdownOpen);
+    }
+  };
+
+  const openSignupDropdown = () => {
+    if (window.innerWidth > 991) {
+      setIsSignupDropdownOpen(true);
+    }
+  };
+
+  const closeSignupDropdown = () => {
+    if (window.innerWidth > 991) {
+      setIsSignupDropdownOpen(false);
     }
   };
 
@@ -56,28 +78,22 @@ function Navbar() {
 
         <div className={`navbar-collapse ${isMenuOpen ? 'show' : ''}`}>
           <ul className="navbar-nav">
+            {/* Menu Dropdown */}
             <li
               className="nav-item dropdown"
-              onClick={toggleDropdown}
-              onMouseEnter={openDropdown}
-              onMouseLeave={closeDropdown}
+              onClick={toggleMenuDropdown}
+              onMouseEnter={openMenuDropdown}
+              onMouseLeave={closeMenuDropdown}
             >
               <span className="nav-link">
-                Menu
-                <span className="dropdown-chevron">▼</span>
+                Menu <span className="dropdown-chevron">▼</span>
               </span>
-              <ul className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
-                {/* <li>
-                  <Link to="/admin" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                    Admin Dashboard
-                  </Link>
-                </li> */}
+              <ul className={`dropdown-menu ${isMenuDropdownOpen ? 'show' : ''}`}>
                 <li>
                   <Link to="/admin/login" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     Admin Login
-                    </Link>
+                  </Link>
                 </li>
-
                 <li>
                   <Link to="/user/dashboard" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     User Dashboard
@@ -121,10 +137,30 @@ function Navbar() {
                 Log in
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/auth" className={`nav-link btn-signup ${isActive('/auth')}`} onClick={() => setIsMenuOpen(false)}>
-                Sign up
-              </Link>
+
+            {/* Sign Up Dropdown */}
+            <li
+              className="nav-item dropdown"
+              onClick={toggleSignupDropdown}
+              onMouseEnter={openSignupDropdown}
+              onMouseLeave={closeSignupDropdown}
+            >
+              <span className={`nav-link btn-signup`}>
+                Sign up <span className="dropdown-chevron">▼</span>
+              </span>
+              <ul className={`dropdown-menu ${isSignupDropdownOpen ? 'show' : ''}`}>
+                <li>
+                  <Link to="/auth" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                    Sign up as User
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/hotel/auth" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                    Sign up as Hotel
+                  </Link>
+                </li>
+
+              </ul>
             </li>
           </ul>
         </div>

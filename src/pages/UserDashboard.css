@@ -1,0 +1,65 @@
+.user-dashboard {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar.closed {
+    width: 0;
+    overflow: hidden;
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 220px;
+    padding: 24px;
+    flex: 1;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .main-content.sidebar-closed {
+    margin-left: 60px; /* More compact for closed state */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 180px;
+      top: 56px;
+    }
+  
+    .main-content {
+      margin-left: 180px;
+    }
+  
+    .sidebar.closed ~ .main-content,
+    .main-content.sidebar-closed {
+      margin-left: 0;
+    }
+  }
+  
+  /* Optional Enhancements */
+  .main-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    min-height: calc(100vh - 60px); /* Adjust for header */
+  }
+  
+  
