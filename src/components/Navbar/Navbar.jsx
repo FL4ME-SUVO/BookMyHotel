@@ -95,7 +95,7 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/user/dashboard" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                  <Link to="/user" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     User Dashboard
                   </Link>
                 </li>

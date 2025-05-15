@@ -11,7 +11,7 @@ import LoginSignup from './pages/Auth';
 import AdminLogin from './pages/AdminLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import HotelLoginSignupPage from './pages/HotelLoginSignupPage';
-
+// import UserDashboard from './pages/UserDashboard';
 import PageLoader from './components/PageLoader/PageLoader';
 
 function AppContent() {
@@ -41,6 +41,7 @@ function AppContent() {
           <Route path="/auth" element={<LoginSignup />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          {/* <Route path="/User" element={<UserDashboard />} /> */}
           <Route path="/hotel/auth" element={<HotelLoginSignupPage />} />
         </Routes>
       </div>
