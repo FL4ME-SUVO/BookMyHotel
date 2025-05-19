@@ -1,0 +1,126 @@
+/* Base sidebar */
+.usidebar {
+    background: #ffffff;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 900;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  .usidebar__header {
+    padding: 1.75rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .ulogo {
+    color: #F85959;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* Content */
+  .usidebar__content {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .usidebar__items {
+    list-style: none;
+    padding: 0 0.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  /* Items */
+  .usidebar__item {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
+    border-radius: 8px;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    position: relative;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .usidebar__item:hover {
+    background: #f8fafc;
+    color: #0f172a;
+  }
+  
+  .usidebar__item.active {
+    color: #0f172a;
+    background: #f1f5f9;
+  }
+  
+  .usidebar__icon {
+    font-size: 1.1rem;
+    min-width: 24px;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .usidebar__item.active .usidebar__icon {
+    color: #F85959;
+  }
+  
+  .usidebar__text {
+    font-size: 0.875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .active-indicator {
+    position: absolute;
+    width: 3px;
+    height: 65%;
+    background: #F85959;
+    left: 0;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  /* Optional main content margin adjustment based on sidebar state (if needed) */
+  /* 
+  .main {
+      margin-left :72px; 
+      transition : margin-left ease .2s;	
+  }
+  .main.expanded{
+      margin-left :240px;	
+  }
+  */
+  
+  /* Scrollbar styles (optional) */
+  .usidebar::-webkit-scrollbar{
+      width :4px;	
+  }
+  .usidebar::-webkit-scrollbar-track{
+      background : transparent;	
+  }
+  .usidebar::-webkit-scrollbar-thumb{
+      background : rgba(15,23,42,.1);	
+      border-radius :4px;	
+  }
+  .usidebar::-webkit-scrollbar-thumb:hover{
+      background : rgba(15,23,42,.2);	
+  }

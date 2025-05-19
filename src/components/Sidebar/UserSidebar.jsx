@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import './Sidebar.css';
+import './UserSidebar.css';
 
-function Sidebar({ setCurrentSection, isSidebarOpen }) {
-  const [activeSection, setActiveSection] = useState('dashboard');
+function UserSidebar({ setCurrentSection, isSidebarOpen }) {
+  const [activeSection, setActiveSection] = useState('profile');
 
   const sections = [
-    { name: 'Dashboard', key: 'dashboard', icon: '📊' },
-    { name: 'Hotels', key: 'hotels', icon: '🏨' },
-    { name: 'Users', key: 'users', icon: '👥' },
-    { name: 'Bookings', key: 'bookings', icon: '📅' },
-    { name: 'F&B', key: 'food', icon: '🍽️' },
-    { name: 'Chatbot', key: 'chatbot', icon: '🤖' },
-    { name: 'Reports', key: 'reports', icon: '📈' },
-    { name: 'Check-in/out', key: 'checkinout', icon: '🏷️' },
+    { name: 'Profile', key: 'profile', icon: '👤' },
+    { name: 'My Bookings', key: 'bookings', icon: '📅' },
+    { name: 'Food Orders', key: 'food', icon: '🍽️' },
+    { name: 'Check-in/out', key: 'checkincheckout', icon: '🏷️' },
     { name: 'Settings', key: 'settings', icon: '⚙️' },
+    { name: 'Logout', key: 'logout', icon: '🚪' },
   ];
 
   const variants = {
@@ -31,11 +28,10 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
     <motion.div
       className="usidebar"
       initial={false}
-      animate={isSidebarOpen ? 'open' : 'closed'}
+      animate={isSidebarOpen ? "open" : "closed"}
       variants={variants}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
-      {/* Header */}
       <div className="usidebar__header">
         <motion.div
           className="ulogo"
@@ -43,11 +39,10 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
           initial={{ opacity: 0 }}
           transition={{ delay: 0.1 }}
         >
-          {isSidebarOpen ? 'Admin' : 'A'}
+          {isSidebarOpen ? 'User' : 'U'}
         </motion.div>
       </div>
 
-      {/* Content */}
       <div className="usidebar__content">
         <ul className="usidebar__items">
           {sections.map((section) => (
@@ -56,10 +51,7 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
               className={`usidebar__item ${activeSection === section.key ? 'active' : ''}`}
               onClick={() => handleClick(section.key)}
             >
-              {/* Icon */}
               <div className="usidebar__icon">{section.icon}</div>
-
-              {/* Text appears only if sidebar is open */}
               {isSidebarOpen && (
                 <motion.span
                   className="usidebar__text"
@@ -70,8 +62,6 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
                   {section.name}
                 </motion.span>
               )}
-
-              {/* Active indicator */}
               {activeSection === section.key && (
                 <motion.div
                   className="active-indicator"
@@ -87,4 +77,4 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
   );
 }
 
-export default Sidebar;
+export default UserSidebar;

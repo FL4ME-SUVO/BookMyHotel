@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import UserNavbar from '../components/Navbar2/UserNavbar'; // Use a user-specific navbar
-import UserSidebar from '../components/Sidebar/UserSidebar'; // Use a user-specific sidebar
-import UserOverview from '../components/User/UserOverview';
+import UserSidebar from '../components/Sidebar/UserSidebar'; // Use the UserSidebar component
+import UserOverview from '../components/UserDashboard/UserProfile';
 import MyBookings from '../components/Booking/MyBookings';
 import FoodOrders from '../components/Food/FoodOrders';
-import ChatSupport from '../components/Chatbot/ChatSupport';
+import UserCheckinCheckout from '../components/CheckInOut/UserCheckinCheckout';
+// import ChatSupport from '../components/Chatbot/ChatSupport';
 import AccountSettings from '../components/Settings/AccountSettings';
 import './UserDashboard.css';
 
@@ -24,8 +25,10 @@ function UserDashboard() {
         return <MyBookings />;
       case 'food':
         return <FoodOrders />;
-      case 'chat':
-        return <ChatSupport />;
+      case 'checkincheckout':
+        return <UserCheckinCheckout />;
+      // case 'chat':
+      //   return <ChatSupport />;
       case 'settings':
         return <AccountSettings />;
       default:
