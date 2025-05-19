@@ -95,6 +95,11 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/hotel/login" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                    Hotel Login
+                  </Link>
+                </li>
+                <li>
                   <Link to="/user" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
                     User Dashboard
                   </Link>
@@ -137,31 +142,14 @@ function Navbar() {
                 Log in
               </Link>
             </li>
-
-            {/* Sign Up Dropdown */}
-            <li
-              className="nav-item dropdown"
-              onClick={toggleSignupDropdown}
-              onMouseEnter={openSignupDropdown}
-              onMouseLeave={closeSignupDropdown}
-            >
-              <span className={`nav-link btn-signup`}>
-                Sign up <span className="dropdown-chevron">▼</span>
-              </span>
-              <ul className={`dropdown-menu ${isSignupDropdownOpen ? 'show' : ''}`}>
-                <li>
-                  <Link to="/auth" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                    Sign up as User
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/hotel/auth" className="dropdown-item" onClick={() => setIsMenuOpen(false)}>
-                    Sign up as Hotel
-                  </Link>
-                </li>
-
-              </ul>
+            <li className="nav-item">
+              <Link to="/auth" className={`nav-link btn-signup ${isActive('/auth')}`} onClick={() => setIsMenuOpen(false)}>
+                Signup
+              </Link>
             </li>
+
+
+
           </ul>
         </div>
       </div>

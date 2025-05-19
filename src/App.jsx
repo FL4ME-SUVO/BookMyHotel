@@ -9,8 +9,8 @@ import SingleHotel from './pages/SingleHotel';
 import RestaurantPage from './pages/RestaurantPage';
 import LoginSignup from './pages/Auth';
 import AdminLogin from './pages/AdminLoginPage';
+import HotelLogin from './pages/HotelLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
-import HotelLoginSignupPage from './pages/HotelLoginSignupPage';
 import UserDashboard from './pages/UserDashboard';
 import PageLoader from './components/PageLoader/PageLoader';
 
@@ -40,9 +40,11 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<LoginSignup />} />
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/hotel/login" element={<HotelLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          {/* <Route path="/hotel" element={<HotelDashboard />} /> */}
           <Route path="/User" element={<UserDashboard />} />
-          <Route path="/hotel/auth" element={<HotelLoginSignupPage />} />
+     
         </Routes>
       </div>
     </>
