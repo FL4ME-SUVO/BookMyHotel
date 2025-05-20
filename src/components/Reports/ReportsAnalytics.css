@@ -1,8 +1,118 @@
+/* Wrapper */
 .reports-analytics {
-    padding: 20px;
-  }
-  
-  .reports-analytics h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
+  padding: 2rem 3rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #2c2c2c;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Headings */
+.ra-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #1a1a1a;
+}
+
+.ra-subtext {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Summary Cards */
+.ra-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.ra-card {
+  background: #ffffff;
+  padding: 1.4rem 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  flex: 1 1 220px;
+  transition: transform 0.2s ease;
+}
+
+.ra-card:hover {
+  transform: translateY(-3px);
+}
+
+.ra-card h3 {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.4rem;
+}
+
+.ra-card p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #3e63dd;
+}
+
+/* Sections */
+.ra-section {
+  margin-top: 2rem;
+}
+
+.ra-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #1e1e1e;
+}
+
+/* Bar Chart */
+.ra-bar-chart {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  height: 180px;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.ra-bar {
+  text-align: center;
+  flex: 1;
+}
+
+.ra-bar-fill {
+  background-color: #3e63dd;
+  border-radius: 6px 6px 0 0;
+  width: 100%;
+  min-height: 10px;
+  transition: height 0.3s ease;
+}
+
+.ra-bar span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Hotel List */
+.ra-list {
+  list-style: none;
+  padding: 1.2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.ra-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.ra-list li:last-child {
+  border-bottom: none;
+}

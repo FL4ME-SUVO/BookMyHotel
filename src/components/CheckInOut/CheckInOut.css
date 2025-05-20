@@ -1,8 +1,119 @@
 .check-in-out {
-    padding: 20px;
-  }
-  
-  .check-in-out h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
+  max-width: 720px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  color: #222;
+}
+
+.check-in-out h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #000000; /* red accent */
+}
+
+.check-in-out p {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.check-in-out__live-tracker {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(230, 57, 70, 0.15); /* softer red shadow */
+  margin-bottom: 40px;
+}
+
+.check-in-out__live-tracker h2 {
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.check-in-out__live-time {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1e1e2e;
+  margin-bottom: 4px;
+}
+
+.check-in-out__live-date {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.check-in-out__current-status {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.status-label {
+  margin-right: 8px;
+}
+
+.status-count {
+  background-color: #E63946;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  min-width: 40px;
+  display: inline-block;
+}
+
+.check-in-out__logs h2 {
+  color: #000000;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.check-in-out__table-wrapper {
+  overflow-x: auto;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.check-in-out__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  color: #333;
+}
+
+.check-in-out__table th,
+.check-in-out__table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.check-in-out__table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #444;
+}
+
+.check-in-out__table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.check-in-out__type--checkin {
+  color: #28a745; /* green */
+  font-weight: 600;
+}
+
+.check-in-out__type--checkout {
+  color: #E63946; /* red */
+  font-weight: 600;
+}
