@@ -1,4 +1,9 @@
+/* Reset box-sizing for consistency */
+* {
+  box-sizing: border-box;
+}
 
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -10,6 +15,7 @@
   background-color: transparent;
 }
 
+/* Navbar container */
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -19,10 +25,10 @@
   padding: 0 2rem;
 }
 
+/* Brand logo */
 .navbar-brand {
   height: 50px;
 }
-
 .navbar-brand img {
   height: 100%;
   width: auto;
@@ -35,7 +41,6 @@
   align-items: center;
   gap: 1rem;
 }
-
 .nav-link {
   color: rgba(255, 255, 255, 0.9);
   padding: 0.5rem 1rem;
@@ -45,35 +50,31 @@
   text-decoration: none;
   border-radius: 4px;
 }
-
-.nav-link:hover, 
+.nav-link:hover,
 .nav-link.active {
   color: var(--light-color);
-  text-decoration: none; 
+  text-decoration: none;
 }
 
-/* Modern Button Styles */
+/* Buttons - Login & Signup */
 .btn-login {
   border: 2px solid var(--primary-color);
   padding: 0.5rem 1.5rem !important;
   margin-left: 0.5rem;
-  display: inline-block; /* Ensure it doesn't take full width */
+  display: inline-block;
 }
-
 .btn-login:hover {
   background: var(--primary-color);
   text-decoration: none;
 }
-
 .btn-signup {
   border: 2px solid var(--primary-color);
   background-color: var(--primary-color);
   color: white !important;
   padding: 0.5rem 1.5rem !important;
   box-shadow: 0 2px 10px rgba(248, 89, 89, 0.3);
-  display: inline-block; /* Ensure it doesn't take full width */
+  display: inline-block;
 }
-
 .btn-signup:hover {
   background-color: var(--hover-color);
   transform: translateY(-1px);
@@ -81,60 +82,50 @@
   text-decoration: none;
 }
 
-/* Responsive Styles for Buttons */
+/* Responsive Buttons */
 @media (max-width: 991px) {
   .btn-login,
   .btn-signup {
-    margin: 0.5rem 0; /* Add some vertical margin */
-    width: 100%; /* Make buttons take full width */
+    margin: 0.5rem 0;
+    width: 100%;
     text-align: center;
   }
 }
-
-/* Mobile Specific Button Adjustments */
 @media (max-width: 767px) {
   .btn-login,
   .btn-signup {
-    width: 100%; /* Make both buttons take full width on small screens */
-    margin: 0.5rem 0; /* Add vertical margin to separate buttons */
-    padding: 1rem 1.5rem; /* Adjust padding for smaller screens */
-    box-sizing: border-box; /* Ensure padding and width are calculated correctly */
+    width: 100%;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
   }
-
   .btn-signup {
-    background-color: var(--primary-color); /* Keep the primary color for signup button */
+    background-color: var(--primary-color);
   }
 }
 
-
-/* Scrolled State */
+/* Scroll state of navbar */
 .navbar.scrolled {
   background-color: white;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
 }
-
 .navbar.scrolled .nav-link {
   color: var(--dark-color);
 }
-
 .navbar.scrolled .nav-link:hover,
 .navbar.scrolled .nav-link.active {
   color: var(--primary-color);
 }
-
 .navbar.scrolled .btn-login {
   border-color: var(--primary-color);
   color: black !important;
- 
 }
-
 .navbar.scrolled .btn-login:hover {
   background: var(--primary-color);
   color: white !important;
 }
 
-/* Mobile Menu */
+/* Hamburger menu toggler (hidden on large screens) */
 .navbar-toggler {
   display: none;
   background: none;
@@ -143,7 +134,6 @@
   cursor: pointer;
   z-index: 1001;
 }
-
 .navbar-toggler-icon {
   display: block;
   width: 24px;
@@ -152,7 +142,6 @@
   position: relative;
   transition: var(--transition);
 }
-
 .navbar-toggler-icon::before,
 .navbar-toggler-icon::after {
   content: '';
@@ -163,66 +152,60 @@
   left: 0;
   transition: var(--transition);
 }
-
 .navbar-toggler-icon::before {
   top: -6px;
 }
-
 .navbar-toggler-icon::after {
   top: 6px;
 }
-
 .navbar-toggler-icon.open {
   background: transparent;
 }
-
 .navbar-toggler-icon.open::before {
   transform: rotate(45deg);
   top: 0;
 }
-
 .navbar-toggler-icon.open::after {
   transform: rotate(-45deg);
   top: 0;
 }
 
+/* Change icon color on scroll */
 .navbar.scrolled .navbar-toggler-icon,
 .navbar.scrolled .navbar-toggler-icon::before,
 .navbar.scrolled .navbar-toggler-icon::after {
   background: var(--dark-color);
 }
-/* Dropdown Menu Styles */
+
+/* Dropdown menu styles */
 .nav-item.dropdown {
   position: relative;
 }
-
 .dropdown-menu {
-  position: fixed; /* Changed from absolute to fixed */
-  top: 70px; /* Adjust this based on your navbar height */
+  position: fixed; /* For desktop dropdown */
+  top: 70px; /* Adjust based on navbar height */
   left: auto;
   right: auto;
-  background: rgba(0, 0, 0, 0.95); /* More opaque background */
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   list-style: none;
   padding: 0.3rem 0;
-  width: 190px; /* Slightly wider */
+  width: 190px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
   transform: translateY(15px);
-  margin-left: -20px; /* Adjust alignment */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  margin-left: -20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .dropdown-menu.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-
 .dropdown-item {
   padding: 0.8rem 1.5rem;
   color: white !important;
@@ -232,108 +215,97 @@
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
 }
-
 .dropdown-item:hover {
   background-color: rgba(248, 89, 89, 0.3);
   border-left: 3px solid var(--primary-color);
   padding-left: 1.7rem;
 }
-
-/* Chevron animation */
 .dropdown-chevron {
   margin-left: 0.5rem;
   font-size: 0.8rem;
   transition: transform 0.3s ease;
 }
-
 .nav-item.dropdown:hover .dropdown-chevron,
 .nav-item.dropdown:focus-within .dropdown-chevron {
   transform: rotate(180deg);
 }
 
-/* Mobile styles */
+/* Mobile styles for dropdowns and menu (max-width: 991px) */
 @media (max-width: 991px) {
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    background: rgba(0, 0, 0, 0.05);
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    margin-left: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    top: auto;
-  }
-  
-  .dropdown-menu.show {
-    max-height: 300px;
-    padding: 0.5rem 0;
-  }
-  
-  .dropdown-item {
-    color: var(--dark-color) !important;
-    padding: 0.75rem 1rem !important;
-    border-left: none !important;
-  }
-  
-  .dropdown-item:hover {
-    padding-left: 1rem !important;
-    background-color: rgba(248, 89, 89, 0.1);
-  }
-  
-  .navbar.scrolled .dropdown-item {
-    color: var(--dark-color) !important;
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 991px) {
+  /* Show hamburger icon */
   .navbar-toggler {
     display: block;
   }
-  
+
+  /* Mobile menu overlay */
   .navbar-collapse {
     position: fixed;
     top: 70px;
     left: 0;
     right: 0;
-    background-color: white;
+    background-color: #fff;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    width: 100%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    z-index: 999;
   }
-  
   .navbar-collapse.show {
-    max-height: 500px;
+    max-height: 600px;
     padding: 1rem;
   }
-  
+  /* Nav items in mobile menu */
   .navbar-nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .nav-link {
-    color: var(--dark-color) !important;
     width: 100%;
-    padding: 0.75rem 0 !important;
+    gap: 0.75rem;
   }
-  
+  /* Nav links in mobile menu */
+  .nav-link {
+    width: 100%;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem;
+    color: var(--dark-color) !important;
+  }
+  /* Buttons in mobile menu */
   .btn-login,
   .btn-signup {
     width: 100%;
-    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
     margin: 0.5rem 0 0 0 !important;
   }
-  
-  .navbar.scrolled .navbar-collapse {
-    background-color: white;
+  /* Dropdown menu collapse for mobile (accordion style) */
+  .dropdown-menu {
+    position: static;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+  /* Show dropdown in mobile if toggled (add 'show' class via JS) */
+  .dropdown-menu.show {
+    max-height: 500px;
+    padding: 0.75rem 1rem;
+  }
+  /* Dropdown items in mobile */
+  .dropdown-item {
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem;
+    color: var(--dark-color) !important;
+  }
+  /* Chevron icon in mobile dropdowns */
+  .dropdown-chevron {
+    margin-left: 0.75rem;
+    font-size: 1rem;
   }
 }
