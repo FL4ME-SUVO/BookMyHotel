@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { FaHome, FaChevronLeft } from 'react-icons/fa';
 import './UserSidebar.css';
 
 function UserSidebar({ setCurrentSection, isSidebarOpen }) {
   const [activeSection, setActiveSection] = useState('profile');
+  const navigate = useNavigate();
 
   const sections = [
     { name: 'Profile', key: 'profile', icon: '👤' },
@@ -11,7 +14,6 @@ function UserSidebar({ setCurrentSection, isSidebarOpen }) {
     { name: 'Food Orders', key: 'food', icon: '🍽️' },
     { name: 'Check-in/out', key: 'checkincheckout', icon: '🏷️' },
     { name: 'Settings', key: 'settings', icon: '⚙️' },
-    { name: 'Logout', key: 'logout', icon: '🚪' },
   ];
 
   const variants = {
@@ -22,6 +24,10 @@ function UserSidebar({ setCurrentSection, isSidebarOpen }) {
   const handleClick = (key) => {
     setActiveSection(key);
     setCurrentSection(key);
+  };
+
+  const handleBackToHome = () => {
+    navigate('/');
   };
 
   return (
@@ -39,11 +45,32 @@ function UserSidebar({ setCurrentSection, isSidebarOpen }) {
           initial={{ opacity: 0 }}
           transition={{ delay: 0.1 }}
         >
-          {isSidebarOpen ? 'User' : 'U'}
+          {isSidebarOpen ? 'User Dashboard' : 'U'}
         </motion.div>
       </div>
 
       <div className="usidebar__content">
+        {/* Back to Home Button */}
+        <div 
+          className="usidebar__item back-button"
+          onClick={handleBackToHome}
+        >
+          <div className="usidebar__icon">
+            <FaChevronLeft />
+          </div>
+          {isSidebarOpen && (
+            <motion.span
+              className="usidebar__text"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              Back to Home
+            </motion.span>
+          )}
+        </div>
+
+        {/* Main Navigation Items */}
         <ul className="usidebar__items">
           {sections.map((section) => (
             <li

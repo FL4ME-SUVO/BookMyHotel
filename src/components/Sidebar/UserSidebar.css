@@ -124,3 +124,28 @@
   .usidebar::-webkit-scrollbar-thumb:hover{
       background : rgba(15,23,42,.2);	
   }
+  /* Back Button Styles */
+.back-button {
+  margin-bottom: 1rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.back-button:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.back-button .usidebar__icon {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.back-button:hover .usidebar__icon {
+  color: #334155;
+}
+
+/* Adjust spacing for the content */
+.usidebar__content {
+  padding-top: 0.5rem;
+}

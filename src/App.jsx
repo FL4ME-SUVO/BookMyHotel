@@ -13,6 +13,7 @@ import HotelLogin from './pages/HotelLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import UserDashboard from './pages/UserDashboard';
 import PageLoader from './components/PageLoader/PageLoader';
+import ChatAssistant from './components/Chatbot/ChatAssistant';
 
 function AppContent() {
   const location = useLocation();
@@ -54,6 +55,9 @@ function AppContent() {
 function App() {
   return (
     <Router>
+
+      <ChatAssistant />
+   
       <AppContent />
     </Router>
   );

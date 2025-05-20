@@ -14,7 +14,6 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
     { name: 'Chatbot', key: 'chatbot', icon: '🤖' },
     { name: 'Reports', key: 'reports', icon: '📈' },
     { name: 'Check-in/out', key: 'checkinout', icon: '🏷️' },
-    { name: 'Settings', key: 'settings', icon: '⚙️' },
   ];
 
   const variants = {
