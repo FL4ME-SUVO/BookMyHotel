@@ -1,3 +1,4 @@
+
 .food-management__container {
   padding: 20px;
   background-color: #fafafa;
@@ -15,6 +16,7 @@
   margin: 20px 0 10px;
   font-size: 1.4em;
   color: #333;
+  padding: 1rem;
 }
 
 .food-management__actions {
