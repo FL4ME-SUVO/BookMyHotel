@@ -1,3 +1,9 @@
+/* Reset box-sizing for consistency */
+* {
+  box-sizing: border-box;
+}
+
+/* Hero Section */
 .hero-section {
   height: 100vh;
   min-height: 700px;
@@ -8,8 +14,10 @@
   color: white;
   display: flex;
   align-items: center;
+  padding: 0 2rem; /* Optional: add horizontal padding for mobile */
 }
 
+/* Overlay for darkening background */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -20,6 +28,7 @@
   z-index: 1;
 }
 
+/* Content container */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -27,23 +36,27 @@
   padding: 2rem;
 }
 
+/* Title styles */
 .hero-title {
   font-size: 3rem;
   font-weight: 500;
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-align: left;
 }
 
 .hero-description {
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
+/* Search form styles */
 .search-form {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
   padding: 1.2rem;
-  /* border-radius: 20px; */
+  /* border-radius: 20px; */ /* Uncomment if rounded corners desired */
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
   margin-bottom: 2rem;
   display: flex;
@@ -51,17 +64,20 @@
   gap: 1rem;
 }
 
+/* Layout for form rows */
 .search-form-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
+/* Search input container, for icons */
 .search-input {
   flex: 1;
   position: relative;
 }
 
+/* Input and select styles */
 .search-input input,
 .search-input select {
   width: 100%;
@@ -82,6 +98,7 @@
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
 }
 
+/* Icon before input */
 .search-input::before {
   content: '';
   position: absolute;
@@ -93,14 +110,15 @@
   color: #999;
 }
 
+/* Specific icons for inputs */
 .search-input:nth-child(1)::before {
   content: '\f002'; /* search icon */
 }
-
 .search-input:nth-child(2)::before {
   content: '\f3c5'; /* location icon */
 }
 
+/* Submit button styles */
 .search-submit {
   padding: 0.8rem 2rem;
   background: var(--primary-color);
@@ -113,7 +131,6 @@
   transition: background 0.3s ease, transform 0.2s ease;
   min-width: 150px;
 }
-
 .search-submit:hover {
   background: #fff;
   color: var(--primary-color);
@@ -121,10 +138,11 @@
   transform: scale(1.0);
 }
 
-
+/* Browse section styles */
 .browse-text {
   color: white;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 .browse-options {
@@ -132,7 +150,6 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
-
 .browse-option {
   display: flex;
   align-items: center;
@@ -141,48 +158,86 @@
   border-radius: 4px;
   color: white;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
-
 .browse-option:hover {
   background: rgba(255, 255, 255, 0.2);
   color: var(--primary-color);
   font-weight: 600;
   text-decoration: none;
 }
-
 .browse-option i {
   margin-right: 0.5rem;
   font-size: 1.25rem;
 }
 
-/* Media Queries */
+/* Responsive adjustments for screens <= 768px */
 @media (max-width: 768px) {
+  /* Title and description font size */
   .hero-title {
     font-size: 2.5rem;
   }
-  
   .hero-description {
     font-size: 1rem;
   }
-  
+  /* Center align text for better mobile readability */
+  .hero-title,
+  .hero-description {
+    text-align: center;
+  }
+  /* Search form layout: column for small screens */
+  .search-form {
+    padding: 1rem;
+  }
   .search-form-row {
     flex-direction: column;
-    gap: 0.5rem;
   }
-  
+  /* Inputs and button full width */
+  .search-input {
+    width: 100%;
+  }
+  .search-input input,
+  .search-input select {
+    padding: 0.8rem 1rem;
+  }
+  .search-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  /* Browse options stacked vertically */
   .browse-options {
     flex-direction: column;
-    gap: 0.5rem;
+  }
+  /* Increase font size for better touch targets if needed */
+  .browse-option {
+    width: 100%;
+    padding: 0.75rem 1rem;
   }
 }
-.typing-text {
-  border-right: 2px solid white;
-  animation: blink 0.7s infinite;
-  font-weight: 500;
+
+/* Optional: Adjust font-awesome icon size if needed on small screens */
+@media (max-width: 768px) {
+  .search-input::before {
+    font-size: 1.4rem;
+  }
+  .browse-option i {
+    font-size: 1.5rem;
+  }
 }
 
-@keyframes blink {
-  0% { border-color: white; }
-  50% { border-color: transparent; }
-  100% { border-color: white; }
+/* Additional small adjustments for very small screens */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  .search-submit {
+    font-size: 1rem;
+  }
+  .browse-option {
+    padding: 0.75rem 0.75rem;
+  }
 }
