@@ -1,48 +1,92 @@
 import React, { useState } from 'react';
-import { FaRobot, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaRobot, FaTimes, FaPaperPlane, FaUser } from 'react-icons/fa';
 import './ChatAssistant.css';
 
 const ChatAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeQuestion, setActiveQuestion] = useState(null);
-
-  const questions = [
+  const [messages, setMessages] = useState([
     {
       id: 1,
-      question: "How does the hotel recommendation system work?",
-      answer: "Our system uses AI to analyze guest preferences, booking history, and real-time availability to suggest the most suitable hotels. It considers factors like location, amenities, price range, and previous guest reviews."
-    },
-    {
-      id: 2,
-      question: "What facial recognition features are available?",
-      answer: "Our facial recognition system enables contactless check-in/out, personalized room access, and enhanced security. Guests can opt-in during booking and complete verification at our kiosks or via our mobile app."
-    },
-    {
-      id: 3,
-      question: "How does smart room assignment work?",
-      answer: "The system automatically assigns rooms based on guest preferences, loyalty status, and current occupancy. It optimizes for operational efficiency while ensuring the best possible guest experience."
-    },
-    {
-      id: 4,
-      question: "Can I manage multiple properties with this system?",
-      answer: "Yes, our platform supports multi-property management with centralized controls and property-specific customization. You can view analytics and manage operations across all properties from one dashboard."
-    },
-    {
-      id: 5,
-      question: "What analytics features are included?",
-      answer: "The system provides real-time occupancy rates, revenue forecasts, guest satisfaction trends, and staff performance metrics. Custom reports can be generated for any time period or property."
+      sender: 'bot',
+      text: "Hello there! I'm Hospy, your hotel management assistant. How can I help you today?",
+      quickReplies: [
+        "Recommendation system",
+        "Facial recognition",
+        "Room assignment",
+        "Multi-property",
+        "Analytics"
+      ]
     }
-  ];
+  ]);
+  const [inputValue, setInputValue] = useState('');
+
+  const botResponses = {
+    "recommendation system": "Our smart recommendation system analyzes guest preferences, booking patterns, and real-time availability to suggest perfect hotel matches. It learns from each interaction to provide increasingly personalized suggestions!",
+    "facial recognition": "Our contactless facial recognition enables seamless check-in/out, personalized room access, and VIP recognition. Guests love the convenience and staff appreciate the efficiency boost!",
+    "room assignment": "The AI-powered room assignment considers guest preferences, maintenance needs, and operational efficiency. It can automatically upgrade loyal guests or group families together!",
+    "multi-property": "You can manage all your properties from one dashboard while maintaining unique branding for each. The system provides both consolidated reports and property-specific insights!",
+    "analytics": "Get real-time insights on occupancy, revenue, guest satisfaction, and staff performance. Our predictive analytics can forecast trends up to 12 months in advance!",
+    "default": "I can help with information about our recommendation system, facial recognition features, smart room assignment, multi-property management, and analytics capabilities. What would you like to know more about?"
+  };
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
-    if (!isOpen) {
-      setActiveQuestion(null);
-    }
   };
 
-  const handleQuestionClick = (id) => {
-    setActiveQuestion(activeQuestion === id ? null : id);
+  const handleSendMessage = () => {
+    if (inputValue.trim() === '') return;
+
+    // Add user message
+    const userMessage = {
+      id: messages.length + 1,
+      sender: 'user',
+      text: inputValue,
+    };
+    setMessages([...messages, userMessage]);
+    setInputValue('');
+
+    // Simulate bot typing
+    setTimeout(() => {
+      const botMessage = {
+        id: messages.length + 2,
+        sender: 'bot',
+        text: getBotResponse(inputValue.toLowerCase()),
+      };
+      setMessages(prev => [...prev, botMessage]);
+    }, 800);
+  };
+
+  const handleQuickReply = (reply) => {
+    const userMessage = {
+      id: messages.length + 1,
+      sender: 'user',
+      text: reply,
+    };
+    setMessages([...messages, userMessage]);
+
+    setTimeout(() => {
+      const botMessage = {
+        id: messages.length + 2,
+        sender: 'bot',
+        text: getBotResponse(reply.toLowerCase()),
+      };
+      setMessages(prev => [...prev, botMessage]);
+    }, 800);
+  };
+
+  const getBotResponse = (input) => {
+    for (const [key, value] of Object.entries(botResponses)) {
+      if (input.includes(key)) {
+        return value;
+      }
+    }
+    return botResponses.default;
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
   };
 
   return (
@@ -51,8 +95,13 @@ const ChatAssistant = () => {
         <div className="chat-container">
           <div className="chat-header">
             <div className="chat-title">
-              <FaRobot className="chat-icon" />
-              <h3>Hospy</h3>
+              <div className="avatar">
+                <FaRobot className="chat-icon" />
+              </div>
+              <div>
+                <h3>Hospy Assistant</h3>
+                <p className="status">Online</p>
+              </div>
             </div>
             <button className="close-btn" onClick={toggleChat}>
               <FaTimes />
@@ -60,35 +109,59 @@ const ChatAssistant = () => {
           </div>
           
           <div className="chat-body">
-            <div className="welcome-message">
-              <p>Hello! I'm your Assistant Hospy. Here are some common questions about our Queries:</p>
-            </div>
-            
-            <div className="questions-list">
-              {questions.map((item) => (
+            <div className="messages-container">
+              {messages.map((message) => (
                 <div 
-                  key={item.id} 
-                  className={`question-item ${activeQuestion === item.id ? 'active' : ''}`}
-                  onClick={() => handleQuestionClick(item.id)}
+                  key={message.id} 
+                  className={`message ${message.sender}`}
                 >
-                  <div className="question-header">
-                    <span>{item.question}</span>
-                    <FaChevronDown className={`toggle-icon ${activeQuestion === item.id ? 'open' : ''}`} />
-                  </div>
-                  {activeQuestion === item.id && (
-                    <div className="answer">
-                      <p>{item.answer}</p>
+                  {message.sender === 'bot' ? (
+                    <div className="avatar">
+                      <FaRobot className="chat-icon" />
+                    </div>
+                  ) : (
+                    <div className="avatar user">
+                      <FaUser className="chat-icon" />
                     </div>
                   )}
+                  <div className="message-content">
+                    <div className="message-text">{message.text}</div>
+                    {message.quickReplies && (
+                      <div className="quick-replies">
+                        {message.quickReplies.map((reply, index) => (
+                          <button
+                            key={index}
+                            className="quick-reply"
+                            onClick={() => handleQuickReply(reply)}
+                          >
+                            {reply}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
+            </div>
+            
+            <div className="chat-input">
+              <input
+                type="text"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Type your message..."
+              />
+              <button className="send-btn" onClick={handleSendMessage}>
+                <FaPaperPlane />
+              </button>
             </div>
           </div>
         </div>
       ) : (
         <button className="chat-toggle-btn" onClick={toggleChat}>
+          <div className="pulse-dot"></div>
           <FaRobot className="chat-icon" />
-          <span>Need Help?</span>
         </button>
       )}
     </div>

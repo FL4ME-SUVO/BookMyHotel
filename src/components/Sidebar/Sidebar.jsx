@@ -11,7 +11,6 @@ function Sidebar({ setCurrentSection, isSidebarOpen }) {
     { name: 'Users', key: 'users', icon: '👥' },
     { name: 'Bookings', key: 'bookings', icon: '📅' },
     { name: 'F&B', key: 'food', icon: '🍽️' },
-    { name: 'Chatbot', key: 'chatbot', icon: '🤖' },
     { name: 'Reports', key: 'reports', icon: '📈' },
     { name: 'Check-in/out', key: 'checkinout', icon: '🏷️' },
   ];

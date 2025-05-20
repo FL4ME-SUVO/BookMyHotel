@@ -6,7 +6,6 @@ import HotelManagement from '../components/Hotel/HotelManagement';
 import UserManagement from '../components/User/UserManagement';
 import BookingManagement from '../components/Booking/BookingManagement';
 import FoodSystem from '../components/Food/FoodSystem';
-import ChatbotManagement from '../components/Chatbot/ChatbotManagement';
 import ReportsAnalytics from '../components/Reports/ReportsAnalytics';
 import CheckInOut from '../components/CheckInOut/CheckInOut';
 import Settings from '../components/Settings/Settings';
@@ -32,8 +31,6 @@ function AdminDashboard() {
         return <BookingManagement />;
       case 'food':
         return <FoodSystem />;
-      case 'chatbot':
-        return <ChatbotManagement />;
       case 'reports':
         return <ReportsAnalytics />;
       case 'checkinout':
