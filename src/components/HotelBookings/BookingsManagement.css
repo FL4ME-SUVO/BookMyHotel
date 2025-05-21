@@ -1,0 +1,327 @@
+/* BookingsManagement.css */
+
+.bm-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.bm-title {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.bm-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.bm-tabButton {
+    background-color: transparent;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #555;
+    border-radius: 4px;
+    margin: 0 5px;
+    font-weight: 500;
+}
+
+.bm-tabButton:hover {
+    background-color: #dee2e6;
+    color: #333;
+}
+
+.bm-tabButton.active {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+.bm-content {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Common Table Styles (similar to guest management) */
+.bm-tableResponsive {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.bm-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.bm-table th,
+.bm-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.bm-table th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+    color: #495057;
+}
+
+.bm-table tbody tr:nth-child(even) {
+    background-color: #fcfdff;
+}
+
+.bm-table tbody tr:hover {
+    background-color: #e9f7fe;
+}
+
+.bm-actionButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.bm-actionButton:hover {
+    background-color: #0056b3;
+}
+
+.bm-modifyButton {
+    background-color: #ffc107; /* Warning yellow */
+    color: #333;
+}
+
+.bm-modifyButton:hover {
+    background-color: #e0a800;
+}
+
+.bm-cancelButton {
+    background-color: #dc3545; /* Danger red */
+}
+
+.bm-cancelButton:hover {
+    background-color: #c82333;
+}
+
+.bm-viewButton {
+    background-color: #28a745; /* Success green */
+}
+
+.bm-viewButton:hover {
+    background-color: #218838;
+}
+
+.bm-noDataMessage {
+    text-align: center;
+    padding: 30px;
+    color: #6c757d;
+    font-style: italic;
+    font-size: 16px;
+}
+
+/* Status Badges */
+.bm-bookingStatus {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+.bm-statusConfirmed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.bm-statusPending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.bm-statusCheckedOut {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.bm-statusCancelled {
+    background-color: #f8d7da; /* Using same as checked-out for visual distinction */
+    color: #721c24;
+    text-decoration: line-through;
+}
+
+/* Form Styles (similar to guest management) */
+.bm-form,
+.bm-modificationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 600px; /* Limit form width */
+    margin: 0 auto; /* Center the form */
+}
+
+.bm-formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.bm-formGroup label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.bm-formGroup input[type="text"],
+.bm-formGroup input[type="email"],
+.bm-formGroup input[type="tel"],
+.bm-formGroup input[type="number"],
+.bm-formGroup input[type="date"],
+.bm-formGroup select,
+.bm-formGroup textarea {
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #495057;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bm-formGroup input:focus,
+.bm-formGroup select:focus,
+.bm-formGroup textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.bm-formGroup textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.bm-submitButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 25px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    align-self: flex-end; /* Align to the right */
+}
+
+.bm-submitButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Cancel/Modify Specific Styles */
+.bm-searchForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.bm-searchInput {
+    flex-grow: 1;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.bm-searchButton {
+    background-color: #6c757d; /* Secondary gray */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.bm-searchButton:hover {
+    background-color: #5a6268;
+}
+
+.bm-bookingDetailsCard {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 20px;
+    background-color: #fefefe;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.bm-bookingDetailsCard h4 {
+    margin-top: 0;
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #e9ecef;
+    padding-bottom: 10px;
+}
+
+.bm-bookingDetailsCard p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.bm-bookingActions {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.bm-modificationForm {
+    margin-top: 20px;
+    border-top: 1px dashed #e0e0e0;
+    padding-top: 20px;
+}
+
+.bm-modificationButtons {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.bm-saveButton {
+    background-color: #28a745; /* Success green */
+}
+
+.bm-saveButton:hover {
+    background-color: #218838;
+}
+
+.bm-cancelModButton {
+    background-color: #6c757d; /* Secondary gray */
+}
+
+.bm-cancelModButton:hover {
+    background-color: #5a6268;
+}

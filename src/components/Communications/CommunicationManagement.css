@@ -1,0 +1,419 @@
+
+
+/* Main Dashboard Container */
+.communication-dashboard {
+    padding: 30px;
+    max-width: 1400px;
+    margin: 30px auto;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+.communication-dashboard-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--border-color);
+    letter-spacing: 0.5px;
+}
+
+/* Individual Section Containers */
+.dashboard-section {
+    margin-bottom: 50px;
+    padding: 25px;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.dashboard-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Content Grids for Messages/Notifications and Call Log/Requests */
+.communication-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px; /* Space between the form and list cards */
+}
+
+@media (min-width: 992px) { /* Two columns on larger screens */
+    .communication-content-grid {
+        grid-template-columns: 1fr 2fr; /* Send message form (left), History (right) */
+    }
+}
+
+/* Card Styling for Forms and Lists */
+.message-send-card,
+.messages-history-card,
+.call-log-form-card,
+.call-history-list-card {
+    background-color: #fcfdff; /* Slightly off-white for distinction */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.03); /* Subtle inner shadow */
+    border: 1px solid var(--border-color);
+}
+
+.message-send-card h4,
+.call-log-form-card h4,
+.messages-history-card h4,
+.call-history-list-card h4 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Form Styles */
+.message-form,
+.call-log-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--light-text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #caced4;
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    background-color: #fcfcfc;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Action Buttons */
+.action-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex; /* For better spacing with text */
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button:hover {
+    background-color: #1a7bbd;
+    box-shadow: var(--shadow-light);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    align-self: flex-end;
+    margin-top: 20px;
+}
+.primary-button:hover {
+    background-color: #43a047;
+}
+
+.small-button {
+    padding: 6px 10px;
+    font-size: 13px;
+    margin-right: 5px;
+    display: inline-block; /* Allow multiple buttons per cell */
+}
+
+.text-danger {
+    color: var(--danger-color) !important;
+    background-color: rgba(244, 67, 54, 0.1);
+    border: 1px solid var(--danger-color);
+}
+.text-danger:hover {
+    background-color: var(--danger-color);
+    color: white !important;
+}
+
+.text-success {
+    color: var(--primary-color) !important;
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid var(--primary-color);
+}
+.text-success:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+}
+
+/* Message History Specific Styles */
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message-item {
+    background-color: #eef8ff; /* Light blue background */
+    border: 1px solid #cfe8fc;
+    border-left: 5px solid var(--secondary-color); /* Emphasize type with left border */
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.message-item.message-received {
+    border-left-color: #007bff; /* Blue */
+    background-color: #e6f7ff;
+}
+.message-item.message-sent {
+    border-left-color: #4CAF50; /* Green */
+    background-color: #e8f5e9;
+}
+.message-item.message-notification {
+    border-left-color: #FFC107; /* Yellow */
+    background-color: #fffde7;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.message-type {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.message-item.message-received .message-type { color: #007bff; }
+.message-item.message-sent .message-type { color: #4CAF50; }
+.message-item.message-notification .message-type { color: #FFC107; }
+
+
+.message-timestamp {
+    font-size: 13px;
+    color: var(--light-text-color);
+}
+
+.message-body strong {
+    display: block;
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.message-body .message-subject {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.message-body .message-content {
+    font-size: 15px;
+    color: var(--light-text-color);
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+}
+
+.message-actions {
+    margin-top: 15px;
+    text-align: right;
+}
+
+
+/* Modern Table Styles (Re-used from FAndSManagement.css) */
+.modern-table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for border-radius on cells */
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #eceff1; /* Light divider */
+    text-align: left;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.modern-table th {
+    background-color: #e0f2f7; /* Light blue header */
+    color: #263238; /* Darker text for header */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.modern-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.modern-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.modern-table tbody tr:last-child td {
+    border-bottom: none; /* No border on last row */
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f0f7ff; /* Lighter blue on hover */
+}
+
+/* Status Badges (Re-used from FAndSManagement.css) */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px; /* Pill shape */
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.status-pending-badge {
+    background-color: #FFECB3; /* Light yellow */
+    color: #FF8F00; /* Darker yellow */
+}
+
+.status-preparing-badge,
+.status-in-progress-badge {
+    background-color: #BBDEFB; /* Light blue */
+    color: #1976D2; /* Darker blue */
+}
+
+.status-completed-badge {
+    background-color: #C8E6C9; /* Light green */
+    color: #388E3C; /* Darker green */
+}
+
+.status-cancelled-badge {
+    background-color: #FFCDD2; /* Light red */
+    color: #D32F2F; /* Darker red */
+    text-decoration: line-through;
+}
+
+.action-complete-text {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-style: italic;
+    font-size: 14px;
+}
+
+.action-complete-text.text-danger {
+    color: var(--danger-color);
+}
+
+.no-data-message {
+    text-align: center;
+    padding: 30px;
+    color: var(--light-text-color);
+    font-style: italic;
+    font-size: 16px;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px dashed #e0e0e0;
+}
+
+/* Responsive adjustments for tables */
+@media (max-width: 768px) {
+    .modern-table, .table-responsive {
+        border: 1px solid #eceff1;
+        border-radius: 8px;
+    }
+
+    .modern-table thead {
+        display: none; /* Hide table headers on small screens */
+    }
+
+    .modern-table, .modern-table tbody, .modern-table tr, .modern-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .modern-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #eceff1;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        background-color: #ffffff;
+    }
+
+    .modern-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .modern-table td::before {
+        content: attr(data-label); /* Use data-label for content */
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        text-align: left;
+        color: var(--secondary-color);
+    }
+
+    /* Assign data-label to table cells for responsive display */
+    .call-history-table td:nth-of-type(1):before { content: "Call ID:"; }
+    .call-history-table td:nth-of-type(2):before { content: "Room/Caller:"; }
+    .call-history-table td:nth-of-type(3):before { content: "Type:"; }
+    .call-history-table td:nth-of-type(4):before { content: "Purpose:"; }
+    .call-history-table td:nth-of-type(5):before { content: "Time:"; }
+    .call-history-table td:nth-of-type(6):before { content: "Status:"; }
+    .call-history-table td:nth-of-type(7):before { content: "Actions:"; }
+}

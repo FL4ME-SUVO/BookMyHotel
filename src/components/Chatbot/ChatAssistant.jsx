@@ -160,7 +160,7 @@ const ChatAssistant = () => {
         </div>
       ) : (
         <button className="chat-toggle-btn" onClick={toggleChat}>
-          <div className="pulse-dot"></div>
+          <div className="pulses-dot"></div>
           <FaRobot className="chat-icon" />
         </button>
       )}

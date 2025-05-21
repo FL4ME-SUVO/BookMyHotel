@@ -14,6 +14,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import UserDashboard from './pages/UserDashboard';
 import PageLoader from './components/PageLoader/PageLoader';
 import ChatAssistant from './components/Chatbot/ChatAssistant';
+import HotelDashboard from './pages/HotelDashboard';
 
 function AppContent() {
   const location = useLocation();
@@ -43,7 +44,7 @@ function AppContent() {
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/hotel/login" element={<HotelLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
-          {/* <Route path="/hotel" element={<HotelDashboard />} /> */}
+          <Route path="/hotel" element={<HotelDashboard />} />
           <Route path="/User" element={<UserDashboard />} />
      
         </Routes>
@@ -55,9 +56,7 @@ function AppContent() {
 function App() {
   return (
     <Router>
-
       <ChatAssistant />
-   
       <AppContent />
     </Router>
   );

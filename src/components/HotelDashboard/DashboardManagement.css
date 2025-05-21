@@ -1,0 +1,322 @@
+/* DashboardManagement.css - More Attractive Design */
+
+
+.dashboard-management-container {
+    padding: 30px;
+    max-width: 1440px; /* Common screen width breakpoint */
+    margin: 40px auto; /* More top/bottom margin for spacing */
+    background-color: var(--background-light); /* Maintain background here */
+    border-radius: 12px;
+    /* Removed background from container to allow body background to show */
+}
+
+.dashboard-title {
+    font-size: 36px;
+    font-weight: 500; /* Slightly lighter font weight for a modern feel */
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #B2DFDB; /* Lighter border color */
+    letter-spacing: 0.3px;
+}
+
+/* Section Containers */
+.dashboard-section {
+    margin-bottom: 40px; /* Adjust spacing between sections */
+    padding: 25px;
+    background-color: var(--card-background);
+    border-radius: 8px; /* Slightly less rounded */
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.dashboard-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 24px; /* Slightly smaller section titles */
+    font-weight: 400; /* Lighter font weight */
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    text-align: left; /* Align section titles to the left */
+    border-bottom: 1px solid #CFD8DC; /* Very light grey border */
+    padding-bottom: 10px;
+}
+
+/* Overview Grid for Key Metrics */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Slightly reduced gap */
+}
+
+.overview-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-medium); /* More noticeable shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: none; /* Remove default border for a cleaner look */
+    position: relative;
+    overflow: hidden;
+    /* Subtle gradient overlay - can be adjusted or removed */
+    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+}
+
+.overview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+.overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Slightly thinner accent line */
+    background-color: var(--border-color);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* More appealing colors for overview cards */
+.overview-card.primary-card::before { background-color: var(--primary-color); }
+.overview-card.success-card::before { background-color: #81C784; /* A softer green */ }
+.overview-card.info-card::before    { background-color: var(--secondary-color); }
+.overview-card.warning-card::before { background-color: var(--accent-color); }
+.overview-card.danger-card::before  { background-color: #E57373; /* A less harsh red */ }
+.overview-card.service-card::before { background-color: #78909C; /* Steel blue */ }
+.overview-card.default-card::before { background-color: #BDBDBD; /* Medium grey */ }
+.overview-card.revenue-card::before { background-color: #FFB74D; /* A richer orange */ }
+
+.overview-card .card-icon {
+    font-size: 40px; /* Slightly smaller icons */
+    margin-bottom: 8px;
+    display: block;
+    color: var(--secondary-color); /* Default icon color */
+    opacity: 0.8; /* Slightly less intense */
+}
+
+/* More appealing icon colors */
+.overview-card.primary-card .card-icon { color: var(--primary-color); }
+.overview-card.success-card .card-icon { color: #81C784; }
+.overview-card.info-card .card-icon    { color: var(--secondary-color); }
+.overview-card.warning-card .card-icon { color: var(--accent-color); }
+.overview-card.danger-card .card-icon  { color: #E57373; }
+
+.overview-card h4 {
+    font-size: 16px; /* Slightly smaller heading */
+    color: var(--light-text-color);
+    margin-bottom: 8px;
+    font-weight: 400;
+    text-transform: uppercase; /* Add some visual structure */
+    letter-spacing: 0.5px;
+}
+
+.overview-card .card-value {
+    font-size: 30px; /* Slightly smaller main value */
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.overview-card .card-sub-value {
+    font-size: 13px;
+    color: var(--light-text-color);
+    font-style: italic;
+}
+
+/* Check-in/Check-out Table Styles */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 15px; /* Slightly reduced top margin */
+    border: 1px solid var(--border-color); /* Add border to the container */
+    border-radius: 8px;
+    background-color: var(--card-background); /* Ensure table background */
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse; /* Use collapse for cleaner borders */
+    margin-top: 0; /* Remove top margin */
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 12px 15px; /* Slightly less padding */
+    border-bottom: 1px solid #ECEFF1;
+    text-align: left;
+    font-size: 14px; /* Slightly smaller font */
+    vertical-align: middle;
+}
+
+.modern-table th {
+    background-color: #F5F5F5; /* Light grey header */
+    color: var(--text-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    position: sticky;
+    top: 0;
+    z-index: 2; /* Ensure header stays on top of shadow */
+}
+
+.modern-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.modern-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.modern-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #F9FBE7; /* Very light yellow/green on hover */
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px; /* Slightly smaller padding */
+    border-radius: 15px; /* More rounded */
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.status-pending-badge {
+    background-color: #FFF9C4; /* Light yellow */
+    color: #F9A825; /* Amber */
+}
+
+.status-in-progress-badge {
+    background-color: #E1F5FE; /* Very light blue */
+    color: #03A9F4; /* Light blue */
+}
+
+.status-completed-badge {
+    background-color: #C8E6C9; /* Light green */
+    color: #388E3C; /* Darker green */
+}
+
+.status-default-badge {
+    background-color: #EEEEEE; /* Very light grey */
+    color: #616161; /* Medium grey */
+}
+
+/* Action Buttons */
+.action-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 18px; /* Slightly smaller buttons */
+    border-radius: 4px; /* Less rounded */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-light);
+}
+
+.action-button:hover {
+    background-color: #1E88E5; /* Darker blue on hover */
+    box-shadow: var(--shadow-medium);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+}
+.primary-button:hover {
+    background-color: #43A047;
+}
+
+.secondary-button {
+    background-color: #78909C; /* Steel blue */
+    margin-left: 5px;
+}
+.secondary-button:hover {
+    background-color: #546E7A; /* Darker steel blue */
+}
+
+.small-button {
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+.no-data-message {
+    text-align: center;
+    padding: 20px; /* Less padding */
+    color: var(--light-text-color);
+    font-style: italic;
+    font-size: 14px;
+    background-color: #F5F5F5;
+    border-radius: 6px;
+    margin-top: 15px;
+    border: 1px dashed #BDBDBD;
+}
+
+/* Responsive adjustments for tables - slightly refined */
+@media (max-width: 768px) {
+    .table-responsive {
+        border: none; /* Remove container border on small screens */
+    }
+
+    .modern-table, .table-responsive {
+        display: block;
+        width: 100%;
+    }
+
+    .modern-table thead {
+        display: none;
+    }
+
+    .modern-table tr {
+        margin-bottom: 10px;
+        border: 1px solid #E0E0E0;
+        border-radius: 4px;
+        box-shadow: var(--shadow-light);
+        background-color: var(--card-background);
+        overflow: hidden; /* Clip rounded borders */
+    }
+
+    .modern-table td {
+        display: block;
+        text-align: right;
+        padding-left: 45%; /* Adjust based on label width */
+        position: relative;
+        border-bottom: 1px solid #F0F0F0; /* Add separator between "rows" */
+    }
+
+    .modern-table td:last-child {
+        border-bottom: none;
+        padding-bottom: 10px; /* Add some padding at the end of the "row" */
+    }
+
+    .modern-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+        padding-left: 10px;
+        font-weight: 500;
+        text-align: left;
+        color: var(--secondary-color);
+    }
+}

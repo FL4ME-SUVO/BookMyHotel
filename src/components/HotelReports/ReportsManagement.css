@@ -1,0 +1,381 @@
+/* ReportsManagement.css */
+
+/* Re-using and extending the design system from previous sections */
+
+
+
+.reports-management-container {
+    padding: 30px;
+    max-width: 1400px;
+    margin: 30px auto;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+}
+
+.reports-dashboard-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--border-color);
+    letter-spacing: 0.5px;
+}
+
+/* Report Navigation */
+.reports-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 10px;
+    background-color: #e0f2f7; /* Light blueish background for nav */
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.nav-button {
+    background-color: transparent;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #495057;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden; /* For pseudo-element underline effect */
+}
+
+.nav-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-out;
+    transform: translateX(-50%);
+}
+
+.nav-button:hover {
+    color: var(--secondary-color);
+    background-color: rgba(33, 150, 243, 0.05); /* Very light blue hover */
+}
+
+.nav-button.active {
+    color: var(--primary-color);
+    background-color: rgba(76, 175, 80, 0.08); /* Very light green active */
+}
+
+.nav-button.active::after {
+    width: 100%; /* Full underline for active tab */
+}
+
+.report-content-display {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+/* Individual Report Section Styling */
+.report-section {
+    padding: 0; /* Already handled by .report-content-display */
+}
+
+.report-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.report-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.date-picker {
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    background-color: #fcfcfc;
+}
+
+.date-picker:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Summary Grid for Daily Summary / Occupancy / Revenue */
+.summary-grid, .occupancy-summary-cards, .revenue-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.summary-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--border-color); /* Default top border */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.summary-card.primary-card::before { background-color: var(--primary-color); }
+.summary-card.info-card::before    { background-color: var(--secondary-color); }
+.summary-card.danger-card::before  { background-color: var(--danger-color); }
+.summary-card.success-card::before { background-color: #4CAF50; } /* Use primary green directly */
+.summary-card.warning-card::before { background-color: var(--accent-color); }
+.summary-card.revenue-card::before { background-color: #FF9800; } /* Orange */
+.summary-card.expense-card::before { background-color: #795548; } /* Brown */
+.summary-card.service-card::before { background-color: #607D8B; } /* Blue Grey */
+.summary-card.default-card::before { background-color: #9E9E9E; } /* Grey */
+
+
+.summary-card .card-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.summary-card h4 {
+    font-size: 18px;
+    color: var(--light-text-color);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.summary-card .card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.summary-card .card-sub-value {
+    font-size: 14px;
+    color: var(--light-text-color);
+    font-style: italic;
+}
+
+.occupancy-summary-cards, .revenue-summary-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.occupancy-summary-cards .big-card, .revenue-summary-cards .big-card {
+    padding: 25px;
+}
+
+.occupancy-summary-cards .big-card .card-value,
+.revenue-summary-cards .big-card .card-value {
+    font-size: 38px;
+}
+
+.sub-section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-top: 40px;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Modern Table Styles (Re-used from FAndSManagement.css, CommunicationManagement.css) */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: separate; /* Use separate for border-radius on cells */
+    border-spacing: 0;
+    margin-top: 15px;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #eceff1; /* Light divider */
+    text-align: left;
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.modern-table th {
+    background-color: #e0f2f7; /* Light blue header */
+    color: #263238; /* Darker text for header */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.modern-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.modern-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.modern-table tbody tr:last-child td {
+    border-bottom: none; /* No border on last row */
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f0f7ff; /* Lighter blue on hover */
+}
+
+/* Status Badges (Re-used for occupancy rates for visual feedback) */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px; /* Pill shape */
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.status-pending-badge {
+    background-color: #FFECB3; /* Light yellow */
+    color: #FF8F00; /* Darker yellow */
+}
+
+.status-in-progress-badge {
+    background-color: #BBDEFB; /* Light blue */
+    color: #1976D2; /* Darker blue */
+}
+
+.status-completed-badge {
+    background-color: #C8E6C9; /* Light green */
+    color: #388E3C; /* Darker green */
+}
+
+.no-data-message {
+    text-align: center;
+    padding: 30px;
+    color: var(--light-text-color);
+    font-style: italic;
+    font-size: 16px;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px dashed #e0e0e0;
+}
+
+/* Responsive adjustments for tables */
+@media (max-width: 768px) {
+    .reports-navigation {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .nav-button {
+        text-align: center;
+    }
+
+    .modern-table, .table-responsive {
+        border: 1px solid #eceff1;
+        border-radius: 8px;
+    }
+
+    .modern-table thead {
+        display: none; /* Hide table headers on small screens */
+    }
+
+    .modern-table, .modern-table tbody, .modern-table tr, .modern-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .modern-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #eceff1;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        background-color: #ffffff;
+    }
+
+    .modern-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .modern-table td::before {
+        content: attr(data-label); /* Use data-label for content */
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        text-align: left;
+        color: var(--secondary-color);
+    }
+
+    /* Assign data-label to table cells for responsive display */
+    /* Occupancy Report Table */
+    .modern-table td:nth-of-type(1):before { content: "Date:"; }
+    .modern-table td:nth-of-type(2):before { content: "Total Rooms:"; }
+    .modern-table td:nth-of-type(3):before { content: "Occupied:"; }
+    .modern-table td:nth-of-type(4):before { content: "Available:"; }
+    .modern-table td:nth-of-type(5):before { content: "Occupancy Rate:"; }
+    .modern-table td:nth-of-type(6):before { content: "Booked (Future):"; }
+    .modern-table td:nth-of-type(7):before { content: "Booking Rate:"; }
+
+    /* Revenue Report Table */
+    .modern-table.revenue-table td:nth-of-type(1):before { content: "Date:"; }
+    .modern-table.revenue-table td:nth-of-type(2):before { content: "Room Rev.:"; }
+    .modern-table.revenue-table td:nth-of-type(3):before { content: "F&B Rev.:"; }
+    .modern-table.revenue-table td:nth-of-type(4):before { content: "Other Rev.:"; }
+    .modern-table.revenue-table td:nth-of-type(5):before { content: "Daily Total:"; }
+}
