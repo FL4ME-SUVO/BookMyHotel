@@ -1,97 +1,341 @@
-/* Unique namespace for this page: hotel-management__ */
-
-.hotel-management__container {
-  padding: 20px;
-  background-color: #fafafa;
+/* General Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.hotel-management__title {
-  font-size: 1.8em;
-  font-weight: 600;
-  margin-bottom: 20px;
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 700px; /* Increased max-width to accommodate more fields */
+  max-height: 90vh; /* Allow scrolling if content is too long */
+  overflow-y: auto; /* Enable vertical scrolling */
+  position: relative;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 25px;
   text-align: center;
-  color: #222;
+  font-weight: 600;
 }
 
-.hotel-management__add-btn {
-  display: inline-block;
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
+/* Form Styles */
+.form-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.hotel-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for inputs */
+  gap: 20px; /* Space between grid items */
+}
+
+.form-group {
+  margin-bottom: 0; /* Remove default margin-bottom as gap handles spacing */
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="tel"], /* Added for tel type */
+.form-group input[type="password"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing for textareas */
+  min-height: 60px; /* Minimum height for textarea */
+}
+
+.full-width {
+  grid-column: 1 / -1; /* Makes element span all columns */
+}
+
+.form-section-title {
+  grid-column: 1 / -1;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #007bff;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+.form-actions {
+  grid-column: 1 / -1; /* Buttons span full width */
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Action Buttons */
+.action-button {
+  padding: 12px 25px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1em;
-  margin-bottom: 20px;
-  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.primary-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.secondary-button:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+.danger-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.danger-button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.small-button {
+  padding: 8px 15px;
+  font-size: 0.85rem;
+}
+
+/* Hotel Management Table */
+.hotel-management__container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.hotel-management__title {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hotel-management__add-btn {
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  background-color: #28a745;
+  color: white;
 }
 
 .hotel-management__add-btn:hover {
-  background-color: #0056b3;
-}
-
-.hotel-management__table-wrapper {
-  overflow-x: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-  background-color: #fff;
-}
-
-.hotel-management__table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.hotel-management__th {
-  padding: 14px 16px;
-  background-color: #f0f0f0;
-  font-weight: 600;
-  color: #444;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-}
-
-.hotel-management__td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #eee;
-  color: #555;
-}
-
-.hotel-management__row:hover {
-  background-color: #fafafa;
-}
-
-.hotel-management__td-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.hotel-management__edit-btn,
-.hotel-management__delete-btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.hotel-management__edit-btn {
-  margin-top: 0.7rem;
-  background-color: #28a745;
-  color: #fff;
-}
-
-.hotel-management__edit-btn:hover {
   background-color: #218838;
 }
 
-.hotel-management__delete-btn {
-  margin-top: 0.7rem;
-  background-color: #dc3545;
-  color: #fff;
+.hotel-management__table-wrapper {
+  overflow-x: auto; /* Ensures table is scrollable on small screens */
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.hotel-management__delete-btn:hover {
-  background-color: #c82333;
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* Ensure table is wide enough for content */
+}
+
+.modern-table thead th {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modern-table tbody tr {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modern-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.modern-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+.modern-table tbody td {
+  padding: 15px 20px;
+  color: #495057;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.hotel-management__td-actions {
+  white-space: nowrap; /* Keep buttons on one line */
+}
+
+.hotel-management__td-actions button {
+  margin-right: 8px;
+}
+
+.hotel-management__td-actions button:last-child {
+  margin-right: 0;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 30px;
+  font-size: 1.1rem;
+  color: #6c757d;
+  background-color: #fdfdfd;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.status-paid-badge { /* Used for 'Active' */
+  background-color: #28a745; /* Green */
+}
+
+.status-pending-badge { /* Used for 'Under Renovation' */
+  background-color: #ffc107; /* Yellow/Orange */
+  color: #333; /* Darker text for readability on yellow */
+}
+
+.status-failed-badge { /* Used for 'Inactive' */
+  background-color: #dc3545; /* Red */
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .modern-table thead {
+      display: none; /* Hide table headers on small screens */
+  }
+
+  .modern-table tbody,
+  .modern-table tr,
+  .modern-table td {
+      display: block; /* Make table elements block for stacked layout */
+      width: 100%;
+  }
+
+  .modern-table tr {
+      margin-bottom: 15px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .modern-table tbody td {
+      text-align: right;
+      padding-left: 50%; /* Space for pseudo-element label */
+      position: relative;
+  }
+
+  .modern-table tbody td::before {
+      content: attr(data-label); /* Use data-label for content */
+      position: absolute;
+      left: 15px;
+      width: calc(50% - 30px);
+      text-align: left;
+      font-weight: bold;
+      color: #007bff;
+  }
+
+  .hotel-management__add-btn {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 1rem;
+  }
+
+  .modal-content {
+      padding: 20px;
+  }
+
+  .hotel-form-grid {
+      grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  .form-actions {
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: stretch; /* Stretch buttons to full width */
+  }
+
+  .action-button {
+      width: 100%;
+  }
 }
