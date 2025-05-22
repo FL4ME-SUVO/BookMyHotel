@@ -78,6 +78,7 @@
 .btn-signup:hover {
   background-color: var(--hover-color);
   transform: translateY(-1px);
+  background: var(--primary-color);
   box-shadow: 0 4px 15px rgba(248, 89, 89, 0.4);
   text-decoration: none;
 }
