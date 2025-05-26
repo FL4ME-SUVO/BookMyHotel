@@ -139,17 +139,14 @@ function Navbar() {
 
             <li className="nav-item">
               <Link to="/auth" className={`nav-link btn-login ${isActive('/auth')}`} onClick={() => setIsMenuOpen(false)}>
-                Log in
+                Log in / Signup
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/auth" className={`nav-link btn-signup ${isActive('/auth')}`} onClick={() => setIsMenuOpen(false)}>
                 Signup
               </Link>
-            </li>
-
-
-
+            </li> */}
           </ul>
         </div>
       </div>
