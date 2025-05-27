@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './HotelManagement.css';
-import HotelFormModal from './HotelFormModal'; // This modal will now handle all inputs
+import HotelFormModal from './HotelFormModal';
+// import AdminCredentialsFormModal from './AdminCredentialsFormModal';
+import axios from 'axios'; 
 
 function HotelManagement() {
     const [hotels, setHotels] = useState([
@@ -18,9 +20,7 @@ function HotelManagement() {
             checkoutTime: '11:00',
             facilities: 'Swimming Pool, Free Wi-Fi, Parking, Restaurant, Spa',
             timeStamp: '2024-01-15T10:30:00Z',
-            status: 'Active',
-            adminEmail: 'admin@grandimperial.com', // Added adminEmail for mock data
-            adminPassword: 'password123' // Added adminPassword for mock data
+            status: 'Active'
         },
         {
             id: 2,
@@ -35,47 +35,68 @@ function HotelManagement() {
             checkoutTime: '10:00',
             facilities: 'Hiking Trails, Bonfire, Cafe, Pet-Friendly',
             timeStamp: '2023-11-20T12:00:00Z',
-            status: 'Active',
-            adminEmail: 'admin@mountainview.com', // Added adminEmail for mock data
-            adminPassword: 'password456' // Added adminPassword for mock data
+            status: 'Active'
         },
     ]);
     const [showHotelFormModal, setShowHotelFormModal] = useState(false);
+    const [showAdminFormModal, setShowAdminFormModal] = useState(false);
+    const [newHotelTempData, setNewHotelTempData] = useState(null); // Stores hotel data temporarily
     const [editingHotel, setEditingHotel] = useState(null); // For future edit functionality
-
+    // const BASE_URL = 'http://localhost:8080/api/hotel'; // Replace with your actual API endpoint
+    
     const handleAddHotelClick = () => {
         setEditingHotel(null); // Ensure we're adding, not editing
         setShowHotelFormModal(true);
     };
-
-    const handleHotelFormSubmit = (hotelData) => {
-        // In a real app, you'd send this to a backend API to get a real ID and a server-side timestamp
-        const newId = hotels.length > 0 ? Math.max(...hotels.map(h => h.id)) + 1 : 1;
-        const hotelWithId = { ...hotelData, id: newId, timeStamp: new Date().toISOString() }; // Add current timestamp
-
-        setHotels(prevHotels => [...prevHotels, hotelWithId]); // Add hotel to list
-        alert(`Hotel "${hotelWithId.name}" added successfully with admin user "${hotelWithId.adminEmail}"!`);
-
-        setShowHotelFormModal(false); // Close hotel form
-    };
-
     const handleCloseModals = () => {
         setShowHotelFormModal(false);
-        setEditingHotel(null); // Clear editing data on close
+        setShowAdminFormModal(false);
+        setNewHotelTempData(null); // Clear temporary data if user cancels mid-process
     };
 
-    const handleEdit = (hotel) => {
-        // For future implementation: pre-fill the form with hotel data for editing
-        setEditingHotel(hotel);
-        setShowHotelFormModal(true);
-    };
 
-    const handleDelete = (id) => {
-        if (window.confirm(`Are you sure you want to delete Hotel with ID: ${id}?`)) {
-            setHotels(hotels.filter(hotel => hotel.id !== id));
-            alert(`Hotel ID ${id} deleted.`);
+
+    const fetchHotels = async () => {
+    try {
+        const response = await axios.get('http://localhost:8080/api/hotels/all');
+        setHotels(response.data);
+    } catch (error) {
+        console.error('Error fetching hotels:', error);
+        alert('Failed to fetch hotel list.');
+    }
+};
+
+const handleHotelFormSubmit = async (hotelData) => {
+    try {
+        if (editingHotel) {
+            await axios.put(`http://localhost:8080/api/hotels/update/${editingHotel.id}`, hotelData);
+            alert('Hotel updated successfully!');
+        } else {
+            await axios.post('http://localhost:8080/api/hotels/add', hotelData);
+            alert(`Hotel "${hotelData.name}" added successfully with admin "${hotelData.adminEmail}"!`);
         }
-    };
+        fetchHotels();
+        setShowHotelFormModal(false);
+    } catch (error) {
+        console.error('Error saving hotel:', error);
+        alert('Something went wrong while saving the hotel.');
+    }
+};
+
+const handleDelete = async (id) => {
+    if (window.confirm(`Are you sure you want to delete hotel ID ${id}?`)) {
+        try {
+            await axios.delete(`http://localhost:8080/api/hotels/delete/${id}`);
+            fetchHotels();
+            alert(`Hotel ID ${id} deleted successfully.`);
+        } catch (error) {
+            console.error('Failed to delete hotel:', error);
+            alert('Failed to delete hotel.');
+        }
+    }
+};
+
+
 
     // Helper to get status badge class
     const getStatusBadgeClass = (status) => {
@@ -113,7 +134,7 @@ function HotelManagement() {
                                 <tr key={hotel.id} className="hotel-management__row">
                                     <td className="hotel-management__td" data-label="ID:">{hotel.id}</td>
                                     <td className="hotel-management__td" data-label="Name:">{hotel.name}</td>
-                                    <td className="hotel-management__td" data-label="Location:">{hotel.city}, {hotel.state}</td>
+                                    <td className="hotel-management__td" data-label="Location:">{hotel.location}, {hotel.city}, {hotel.state}</td>
                                     <td className="hotel-management__td" data-label="Contact Email:">{hotel.email}</td>
                                     <td className="hotel-management__td" data-label="Phone:">{hotel.ph}</td>
                                     <td className="hotel-management__td" data-label="License No.:">{hotel.lisenceNo}</td>
@@ -125,7 +146,10 @@ function HotelManagement() {
                                     <td className="hotel-management__td-actions" data-label="Actions:">
                                         <button
                                             className="hotel-management__edit-btn action-button small-button secondary-button"
-                                            onClick={() => handleEdit(hotel)}
+                                            onClick={() => {
+                                            setEditingHotel(hotel);
+                                            setShowHotelFormModal(true);
+                                            }}
                                         >
                                             Edit
                                         </button>
@@ -147,12 +171,21 @@ function HotelManagement() {
                 </table>
             </div>
 
-            {/* Hotel Form Modal (now includes admin fields) */}
+            {/* Hotel Form Modal */}
             {showHotelFormModal && (
                 <HotelFormModal
                     onClose={handleCloseModals}
                     onSubmit={handleHotelFormSubmit}
                     initialData={editingHotel} // Pass data if editing
+                />
+            )}
+
+            {/* Admin Credentials Form Modal */}
+            {showAdminFormModal && newHotelTempData && (
+                <AdminCredentialsFormModal
+                    onClose={handleCloseModals}
+                    onSubmit={handleAdminFormSubmit}
+                    hotelName={newHotelTempData.name}
                 />
             )}
         </div>

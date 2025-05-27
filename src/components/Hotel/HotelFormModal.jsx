@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './HotelManagement.css'; 
+import './HotelManagement.css';
 
 const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
     const [hotelData, setHotelData] = useState({
@@ -10,22 +10,28 @@ const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
         city: '',
         rating: '',
         lisenceNo: '',
-        checkinTime: '14:00', // Default check-in time
-        checkoutTime: '11:00', // Default check-out time
+        checkinTime: '14:00',
+        checkoutTime: '11:00',
         facilities: '',
-        status: 'Active', // Default status for new hotel
-        // New admin fields
+        status: 'Active',
         adminEmail: '',
         adminPassword: '',
         confirmAdminPassword: '',
     });
 
-    // Populate form if editing existing hotel
+    const [errors, setErrors] = useState({});
+
     useEffect(() => {
         if (initialData) {
-            // When editing, do not pre-fill password fields for security reasons
             const { adminEmail, adminPassword, ...rest } = initialData;
-            setHotelData({ ...rest, adminEmail: adminEmail || '', adminPassword: '', confirmAdminPassword: '' });
+            setHotelData({ 
+                ...rest, 
+                adminEmail: adminEmail || '', 
+                adminPassword: '', 
+                confirmAdminPassword: '',
+                checkinTime: rest.checkinTime || '14:00',
+                checkoutTime: rest.checkoutTime || '11:00'
+            });
         }
     }, [initialData]);
 
@@ -35,41 +41,56 @@ const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
             ...prevData,
             [name]: value
         }));
+        
+        // Clear error when user starts typing
+        if (errors[name]) {
+            setErrors(prev => {
+                const newErrors = { ...prev };
+                delete newErrors[name];
+                return newErrors;
+            });
+        }
+    };
+
+    const validateForm = () => {
+        const newErrors = {};
+        
+        // Hotel information validation
+        if (!hotelData.name.trim()) newErrors.name = 'Hotel name is required';
+        if (!hotelData.email.trim()) newErrors.email = 'Email is required';
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(hotelData.email)) newErrors.email = 'Invalid email format';
+        
+        if (!hotelData.ph.trim()) newErrors.ph = 'Phone number is required';
+        else if (!/^\d{10}$/.test(hotelData.ph)) newErrors.ph = 'Phone must be 10 digits';
+        
+        if (!hotelData.state.trim()) newErrors.state = 'State is required';
+        if (!hotelData.city.trim()) newErrors.city = 'City is required';
+        if (!hotelData.lisenceNo.trim()) newErrors.lisenceNo = 'License number is required';
+        
+        // Admin credentials validation (only for new hotels or when changing)
+        if (!initialData || hotelData.adminEmail || hotelData.adminPassword || hotelData.confirmAdminPassword) {
+            if (!hotelData.adminEmail.trim()) newErrors.adminEmail = 'Admin email is required';
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(hotelData.adminEmail)) newErrors.adminEmail = 'Invalid email format';
+            
+            if (!hotelData.adminPassword) newErrors.adminPassword = 'Password is required';
+            else if (hotelData.adminPassword.length < 8) newErrors.adminPassword = 'Password must be at least 8 characters';
+            
+            if (!hotelData.confirmAdminPassword) newErrors.confirmAdminPassword = 'Please confirm password';
+            else if (hotelData.adminPassword !== hotelData.confirmAdminPassword) {
+                newErrors.confirmAdminPassword = 'Passwords do not match';
+            }
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Basic validation for required hotel fields
-        if (!hotelData.name || !hotelData.email || !hotelData.ph || !hotelData.state || !hotelData.city || !hotelData.lisenceNo) {
-            alert('Please fill in all required hotel details: Name, Email, Phone, State, City, License No.');
-            return;
-        }
-
-        // Basic phone number validation (can be more robust with regex)
-        if (isNaN(hotelData.ph) || hotelData.ph.length !== 10) {
-            alert('Please enter a valid 10-digit phone number.');
-            return;
-        }
-
-        // Validation for admin credentials (only if adding a new hotel or if admin fields are explicitly being changed during edit)
-        if (!initialData || hotelData.adminEmail || hotelData.adminPassword || hotelData.confirmAdminPassword) {
-            if (!hotelData.adminEmail || !hotelData.adminPassword || !hotelData.confirmAdminPassword) {
-                alert('Please fill in all required admin credentials: Admin Email, Password, Confirm Password.');
-                return;
-            }
-            if (hotelData.adminPassword !== hotelData.confirmAdminPassword) {
-                alert('Admin Password and Confirm Password do not match!');
-                return;
-            }
-            if (hotelData.adminPassword.length < 8) {
-                alert('Admin Password must be at least 8 characters long!');
-                return;
-            }
-        }
         
-        // Prepare data for submission
+        if (!validateForm()) return;
+        
         const dataToSubmit = { ...hotelData };
-        // Remove confirmAdminPassword before submitting, as it's only for validation
         delete dataToSubmit.confirmAdminPassword;
 
         onSubmit(dataToSubmit);
@@ -80,71 +101,77 @@ const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
             <div className="modal-content form-card">
                 <h3 className="modal-title">{initialData ? 'Edit Hotel Details' : 'Add New Hotel'}</h3>
                 <form onSubmit={handleSubmit} className="hotel-form-grid">
-                    {/* Hotel Details Section */}
+                    {/* Hotel Information Section */}
                     <h4 className="form-section-title full-width">Hotel Information</h4>
+                    
                     <div className="form-group full-width">
-                        <label htmlFor="hotelName">Hotel Name:</label>
+                        <label htmlFor="hotelName">Hotel Name*</label>
                         <input
                             type="text"
                             id="hotelName"
                             name="name"
                             value={hotelData.name}
                             onChange={handleChange}
-                            required
+                            className={errors.name ? 'error-input' : ''}
                         />
+                        {errors.name && <span className="error-message">{errors.name}</span>}
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="hotelEmail">Contact Email:</label>
+                        <label htmlFor="hotelEmail">Contact Email*</label>
                         <input
                             type="email"
                             id="hotelEmail"
                             name="email"
                             value={hotelData.email}
                             onChange={handleChange}
-                            required
+                            className={errors.email ? 'error-input' : ''}
                         />
+                        {errors.email && <span className="error-message">{errors.email}</span>}
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="hotelPh">Phone Number:</label>
+                        <label htmlFor="hotelPh">Phone Number*</label>
                         <input
-                            type="tel" // Changed to tel for phone numbers
+                            type="tel"
                             id="hotelPh"
                             name="ph"
                             value={hotelData.ph}
                             onChange={handleChange}
-                            placeholder="e.g., 9876543210"
-                            required
-                            pattern="[0-9]{10}" // HTML5 pattern for 10 digits
-                            title="Please enter a 10-digit phone number"
+                            placeholder="9876543210"
+                            className={errors.ph ? 'error-input' : ''}
                         />
+                        {errors.ph && <span className="error-message">{errors.ph}</span>}
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="hotelState">State:</label>
+                        <label htmlFor="hotelState">State*</label>
                         <input
                             type="text"
                             id="hotelState"
                             name="state"
                             value={hotelData.state}
                             onChange={handleChange}
-                            required
+                            className={errors.state ? 'error-input' : ''}
                         />
+                        {errors.state && <span className="error-message">{errors.state}</span>}
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="hotelCity">City:</label>
+                        <label htmlFor="hotelCity">City*</label>
                         <input
                             type="text"
                             id="hotelCity"
                             name="city"
                             value={hotelData.city}
                             onChange={handleChange}
-                            required
+                            className={errors.city ? 'error-input' : ''}
                         />
+                        {errors.city && <span className="error-message">{errors.city}</span>}
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="hotelRating">Rating (e.g., 3-star):</label>
+                        <label htmlFor="hotelRating">Rating</label>
                         <input
                             type="text"
                             id="hotelRating"
@@ -154,20 +181,22 @@ const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
                             placeholder="e.g., 4-star"
                         />
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="hotelLisenceNo">License Number:</label>
+                        <label htmlFor="hotelLisenceNo">License Number*</label>
                         <input
                             type="text"
                             id="hotelLisenceNo"
                             name="lisenceNo"
                             value={hotelData.lisenceNo}
                             onChange={handleChange}
-                            required
+                            className={errors.lisenceNo ? 'error-input' : ''}
                         />
+                        {errors.lisenceNo && <span className="error-message">{errors.lisenceNo}</span>}
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="hotelCheckinTime">Check-in Time:</label>
+                        <label htmlFor="hotelCheckinTime">Check-in Time</label>
                         <input
                             type="time"
                             id="hotelCheckinTime"
@@ -176,8 +205,9 @@ const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
                             onChange={handleChange}
                         />
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="hotelCheckoutTime">Check-out Time:</label>
+                        <label htmlFor="hotelCheckoutTime">Check-out Time</label>
                         <input
                             type="time"
                             id="hotelCheckoutTime"
@@ -188,19 +218,19 @@ const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
                     </div>
 
                     <div className="form-group full-width">
-                        <label htmlFor="hotelFacilities">Facilities (comma-separated):</label>
+                        <label htmlFor="hotelFacilities">Facilities</label>
                         <textarea
                             id="hotelFacilities"
                             name="facilities"
                             value={hotelData.facilities}
                             onChange={handleChange}
                             rows="2"
-                            placeholder="e.g., Swimming Pool, Free Wi-Fi, Parking, Restaurant"
-                        ></textarea>
+                            placeholder="Swimming Pool, Free Wi-Fi, Parking, Restaurant"
+                        />
                     </div>
 
-                    <div className="form-group full-width">
-                        <label htmlFor="hotelStatus">Status:</label>
+                    <div className="form-group">
+                        <label htmlFor="hotelStatus">Status</label>
                         <select
                             id="hotelStatus"
                             name="status"
@@ -213,44 +243,46 @@ const HotelFormModal = ({ onClose, onSubmit, initialData }) => {
                         </select>
                     </div>
 
-                    {/* Admin Credentials Section (only for new hotels or if actively editing) */}
-                    {/* For simplicity, we show admin fields always. In a real app, you might hide them during edit
-                        unless explicitly triggering an "update admin" action. */}
-                    <h4 className="form-section-title full-width">Admin Account Setup</h4>
+                    {/* Admin Credentials Section */}
+                    <h4 className="form-section-title full-width">Admin Account</h4>
+                    
                     <div className="form-group full-width">
-                        <label htmlFor="adminEmail">Admin Email:</label>
+                        <label htmlFor="adminEmail">Admin Email*</label>
                         <input
                             type="email"
                             id="adminEmail"
                             name="adminEmail"
                             value={hotelData.adminEmail}
                             onChange={handleChange}
-                            required
+                            className={errors.adminEmail ? 'error-input' : ''}
                         />
+                        {errors.adminEmail && <span className="error-message">{errors.adminEmail}</span>}
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="adminPassword">Password:</label>
+                        <label htmlFor="adminPassword">Password*</label>
                         <input
                             type="password"
                             id="adminPassword"
                             name="adminPassword"
                             value={hotelData.adminPassword}
                             onChange={handleChange}
-                            required
-                            minLength="8"
+                            className={errors.adminPassword ? 'error-input' : ''}
                         />
+                        {errors.adminPassword && <span className="error-message">{errors.adminPassword}</span>}
                     </div>
+
                     <div className="form-group">
-                        <label htmlFor="confirmAdminPassword">Confirm Password:</label>
+                        <label htmlFor="confirmAdminPassword">Confirm Password*</label>
                         <input
                             type="password"
                             id="confirmAdminPassword"
                             name="confirmAdminPassword"
                             value={hotelData.confirmAdminPassword}
                             onChange={handleChange}
-                            required
-                            minLength="8"
+                            className={errors.confirmAdminPassword ? 'error-input' : ''}
                         />
+                        {errors.confirmAdminPassword && <span className="error-message">{errors.confirmAdminPassword}</span>}
                     </div>
 
                     <div className="form-actions full-width">
