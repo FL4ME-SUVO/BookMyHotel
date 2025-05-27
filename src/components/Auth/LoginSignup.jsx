@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './LoginSignup.css';
 import { FaFacebookF, FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function LoginSignup() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -14,6 +16,7 @@ function LoginSignup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const toggleMode = () => {
     setIsSignUp((prev) => !prev);
@@ -41,7 +44,7 @@ function LoginSignup() {
         'Password must contain uppercase, lowercase, number, special character and be at least 6 characters';
     }
 
-    if (!emailVerified) {
+    if (isSignUp && !emailVerified) {
       newErrors.email = 'Please verify your email';
     }
 
@@ -49,23 +52,51 @@ function LoginSignup() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      alert(`${isSignUp ? 'Account created' : 'Logged in'} successfully`);
+    if (!validateForm()) return;
+
+    try {
+      if (isSignUp) {
+        const { name, email, password } = formData;
+        const response = await axios.post('http://localhost:8080/api/auth/signup', {
+          name,
+          email,
+          password,
+        });
+
+        if (response.status === 200 || response.status === 201) {
+          alert('Account created successfully! Please log in.');
+          toggleMode();
+        }
+      } else {
+        const { email, password } = formData;
+        const response = await axios.post('http://localhost:8080/api/auth/login', {
+          email,
+          password,
+        });
+
+        const token = response.data.token;
+        localStorage.setItem('token', token);
+        alert('Logged in successfully!');
+        navigate('/');
+      }
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message || 'Something went wrong');
+      } else {
+        alert('Server is not responding');
+      }
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (name === 'email') {
-      setEmailVerified(false); // reset verification if email changes
-    }
+    if (name === 'email') setEmailVerified(false);
   };
 
   const handleEmailVerify = () => {
-    // simulate verification
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       setEmailVerified(true);
     } else {
@@ -74,10 +105,7 @@ function LoginSignup() {
   };
 
   return (
-    <div
-      className="auth-page"
-      style={{ backgroundImage: "url('/Images/bg_11.jpg')" }}
-    >
+    <div className="auth-page" style={{ backgroundImage: "url('/Images/bg_11.jpg')" }}>
       <div className="background-overlay"></div>
 
       <div className={`auth-container ${isSignUp ? 'signup-mode' : ''}`}>
@@ -109,39 +137,25 @@ function LoginSignup() {
               </>
             )}
 
-            {isSignUp ? (
-              <>
-                <div className="email-verify-input">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                  <button
-                    type="button"
-                    className={`verify-btn ${emailVerified ? 'verified' : ''}`}
-                    onClick={handleEmailVerify}
-                  >
-                    {emailVerified ? 'Verified' : 'Verify'}
-                  </button>
-                </div>
-                {errors.email && <small className="error error-below">{errors.email}</small>}
-              </>
-            ) : (
-              <>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </>
-            )}
-
-
+            <div className="email-verify-input">
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {isSignUp && (
+                <button
+                  type="button"
+                  className={`verify-btn ${emailVerified ? 'verified' : ''}`}
+                  onClick={handleEmailVerify}
+                >
+                  {emailVerified ? 'Verified' : 'Verify'}
+                </button>
+              )}
+            </div>
+            {errors.email && <small className="error">{errors.email}</small>}
 
             <div className="password-input">
               <input
@@ -155,9 +169,7 @@ function LoginSignup() {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
-            {errors.password && (
-              <small className="error">{errors.password}</small>
-            )}
+            {errors.password && <small className="error">{errors.password}</small>}
 
             {isSignUp && (
               <>
@@ -169,11 +181,7 @@ function LoginSignup() {
                     value={formData.confirmPassword}
                     onChange={handleChange}
                   />
-                  <span
-                    onClick={() =>
-                      setShowConfirmPassword((prev) => !prev)
-                    }
-                  >
+                  <span onClick={() => setShowConfirmPassword((prev) => !prev)}>
                     {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
