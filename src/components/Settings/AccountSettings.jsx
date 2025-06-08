@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import './AccountSettings.css';
 
 function AccountSettings() {
-  // State variables for form fields
   const [name, setName] = useState('John Doe');
   const [email, setEmail] = useState('john.doe@example.com');
   const [password, setPassword] = useState('');
@@ -10,68 +10,67 @@ function AccountSettings() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Basic validation
     if (password !== confirmPassword) {
       setMessage('Passwords do not match.');
       return;
     }
-
-    // Simulate saving data
-    setMessage('Account settings updated successfully!');
-    // Here you could also make an API call to save changes
+    setMessage('Account updated successfully!');
   };
 
   return (
-    <div className="account-settings">
-      <h2>Account Settings</h2>
-      
-      {message && <p className="message">{message}</p>}
+    <div className="as-fullpage">
+      <h1 className="as-fullpage-title">Account Settings</h1>
 
-      <form onSubmit={handleSubmit} className="settings-form">
-        <div className="form-group">
-          <label>Name:</label>
+      {message && <p className="as-fullpage-message">{message}</p>}
+
+      <form onSubmit={handleSubmit} className="as-fullpage-form">
+        <label className="as-fullpage-label">
+          Name
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Your Name"
+            className="as-fullpage-input"
+            placeholder="Your name"
             required
           />
-        </div>
+        </label>
 
-        <div className="form-group">
-          <label>Email:</label>
+        <label className="as-fullpage-label">
+          Email
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="as-fullpage-input"
             placeholder="you@example.com"
             required
           />
-        </div>
+        </label>
 
-        <div className="form-group">
-          <label>New Password:</label>
+        <label className="as-fullpage-label">
+          New Password
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="New Password"
+            className="as-fullpage-input"
+            placeholder="••••••••"
           />
-        </div>
+        </label>
 
-        <div className="form-group">
-          <label>Confirm Password:</label>
+        <label className="as-fullpage-label">
+          Confirm Password
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Confirm Password"
+            className="as-fullpage-input"
+            placeholder="••••••••"
           />
-        </div>
+        </label>
 
-        <button type="submit">Save Changes</button>
+        <button type="submit" className="as-fullpage-button">Save Changes</button>
       </form>
     </div>
   );

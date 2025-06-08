@@ -15,6 +15,8 @@ import UserDashboard from './pages/UserDashboard';
 import PageLoader from './components/PageLoader/PageLoader';
 import ChatAssistant from './components/Chatbot/ChatAssistant';
 import HotelDashboard from './pages/HotelDashboard';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import ForgotPassword from './pages/ForgotPassword';
 
 function AppContent() {
   const location = useLocation();
@@ -46,6 +48,7 @@ function AppContent() {
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/hotel" element={<HotelDashboard />} />
           <Route path="/User" element={<UserDashboard />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
      
         </Routes>
       </div>
@@ -56,6 +59,7 @@ function AppContent() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <ChatAssistant />
       <AppContent />
     </Router>

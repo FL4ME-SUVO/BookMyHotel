@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Import Link
 import './LoginSignup.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
@@ -10,7 +10,7 @@ function HotelLogin() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate(); // for navigation
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -35,7 +35,7 @@ function HotelLogin() {
     e.preventDefault();
     if (validateForm()) {
       alert('Hotel logged in successfully');
-      navigate('/hotel'); // redirect to Hotel Dashboard or relevant page
+      navigate('/hotel');
     }
   };
 
@@ -81,9 +81,10 @@ function HotelLogin() {
               <small className="error">{errors.password}</small>
             )}
 
-            <a href="#" className="forgot-password">
+            {/* Updated Link to Forgot Password page */}
+            <Link to="/forgot-password" className="forgot-password">
               Forgot password?
-            </a>
+            </Link>
 
             <button type="submit" className="submit-btn">
               Log In

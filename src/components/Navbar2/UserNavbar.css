@@ -1,0 +1,218 @@
+/* UserNavbar Component Scoped CSS */
+.user-navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .user-navbar-left-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .user-navbar-sidebar-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4b5563;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .user-navbar-sidebar-toggle:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+  }
+  
+  .user-navbar-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .user-navbar-search-section {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 2rem;
+  }
+  
+  .user-navbar-search-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .user-navbar-search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+  }
+  
+  .user-navbar-search-input {
+    width: 100%;
+    padding: 0.625rem 1rem 0.625rem 2.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background-color: #f9fafb;
+    color: #111827;
+    transition: all 0.2s ease;
+  }
+  
+  .user-navbar-search-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+  
+  .user-navbar-right-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+  }
+  
+  .user-navbar-notifications {
+    position: relative;
+    cursor: pointer;
+    color: #4b5563;
+    transition: color 0.2s ease;
+  }
+  
+  .user-navbar-notifications:hover {
+    color: #111827;
+  }
+  
+  .user-navbar-notification-badge {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.625rem;
+    font-weight: 600;
+  }
+  
+  .user-navbar-user-dropdown {
+    position: relative;
+  }
+  
+  .user-navbar-profile-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+  
+  .user-navbar-profile-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .user-navbar-profile-pic {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+  }
+  
+  .user-navbar-user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .user-navbar-dropdown-icon {
+    color: #6b7280;
+    transition: transform 0.2s ease;
+  }
+  
+  .user-navbar-dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    min-width: 200px;
+    z-index: 50;
+    overflow: hidden;
+  }
+  
+  .user-navbar-user-dropdown.open .user-navbar-dropdown-menu {
+    display: block;
+  }
+  
+  .user-navbar-dropdown-menu li {
+    padding: 0;
+  }
+  
+  .user-navbar-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+  }
+  
+  .user-navbar-dropdown-menu a:hover {
+    background-color: #f9fafb;
+    color: #111827;
+  }
+  
+  .user-navbar-dropdown-menu li:not(:last-child) {
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .user-navbar-user-dropdown.open .user-navbar-dropdown-icon {
+    transform: rotate(180deg);
+  }
+  
+  @media (max-width: 768px) {
+    .user-navbar-container {
+      padding: 0 1rem;
+    }
+  
+    .user-navbar-search-section {
+      display: none;
+    }
+  
+    .user-navbar-right-section {
+      gap: 1rem;
+    }
+  }
+  

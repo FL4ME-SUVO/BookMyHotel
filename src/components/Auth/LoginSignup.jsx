@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './LoginSignup.css';
 import { FaFacebookF, FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Add Link
 
 function LoginSignup() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -192,9 +192,9 @@ function LoginSignup() {
             )}
 
             {!isSignUp && (
-              <a href="#" className="forgot-password">
+              <Link to="/forgot-password" className="forgot-password">
                 Forgot password?
-              </a>
+              </Link>
             )}
 
             <button type="submit" className="submit-btn">

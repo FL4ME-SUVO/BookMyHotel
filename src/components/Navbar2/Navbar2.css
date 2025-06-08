@@ -1,5 +1,5 @@
-/* Modern Admin Navbar CSS with Improved Specificity */
-.admin-top-navbar {
+/* Navbar2 Component Scoped CSS */
+.navbar2-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,13 +13,13 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.admin-top-navbar .left-section {
+.navbar2-left {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.admin-top-navbar .sidebar-toggle {
+.navbar2-sidebar-toggle {
   background: none;
   border: none;
   cursor: pointer;
@@ -32,40 +32,29 @@
   justify-content: center;
 }
 
-.admin-top-navbar .sidebar-toggle:hover {
+.navbar2-sidebar-toggle:hover {
   background-color: #f3f4f6;
   color: #111827;
 }
 
-.admin-top-navbar .sidebar-toggle svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.admin-top-navbar .branding {
-  display: flex;
-  align-items: center;
-}
-
-.admin-top-navbar .logo {
-  height: 48px; /* Increased from 32px */
+.navbar2-logo {
+  height: 48px;
   width: auto;
   object-fit: contain;
 }
 
-
-.admin-top-navbar .search-section {
+.navbar2-search-section {
   flex: 1;
   max-width: 500px;
   margin: 0 2rem;
 }
 
-.admin-top-navbar .search-container {
+.navbar2-search-container {
   position: relative;
   width: 100%;
 }
 
-.admin-top-navbar .search-icon {
+.navbar2-search-icon {
   position: absolute;
   left: 0.75rem;
   top: 50%;
@@ -74,7 +63,7 @@
   pointer-events: none;
 }
 
-.admin-top-navbar .search-input {
+.navbar2-search-input {
   width: 100%;
   padding: 0.625rem 1rem 0.625rem 2.5rem;
   border: 1px solid #e5e7eb;
@@ -85,33 +74,32 @@
   transition: all 0.2s ease;
 }
 
-.admin-top-navbar .search-input:focus {
+.navbar2-search-input:focus {
   outline: none;
   border-color: #6366f1;
   background-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.admin-top-navbar .right-section {
+.navbar2-right {
   display: flex;
   align-items: center;
-  gap: 20rem;
-  margin-left: auto; /* Push to far right */
+  gap: 2rem;
+  margin-left: auto;
 }
 
-
-.admin-top-navbar .notifications {
+.navbar2-notifications {
   position: relative;
   cursor: pointer;
   color: #4b5563;
   transition: color 0.2s ease;
 }
 
-.admin-top-navbar .notifications:hover {
+.navbar2-notifications:hover {
   color: #111827;
 }
 
-.admin-top-navbar .notification-badge {
+.navbar2-notification-badge {
   position: absolute;
   top: -0.25rem;
   right: -0.25rem;
@@ -127,11 +115,11 @@
   font-weight: 600;
 }
 
-.admin-top-navbar .user-dropdown {
+.navbar2-user-dropdown {
   position: relative;
 }
 
-.admin-top-navbar .profile-button {
+.navbar2-profile-button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -143,11 +131,11 @@
   transition: all 0.2s ease;
 }
 
-.admin-top-navbar .profile-button:hover {
+.navbar2-profile-button:hover {
   background-color: #f3f4f6;
 }
 
-.admin-top-navbar .profile-pic {
+.navbar2-profile-pic {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -155,22 +143,19 @@
   border: 2px solid #e5e7eb;
 }
 
-.admin-top-navbar .user-name {
+.navbar2-user-name {
   font-size: 0.875rem;
   font-weight: 500;
   color: #111827;
 }
 
-.admin-top-navbar .dropdown-icon {
+.navbar2-dropdown-icon {
   color: #6b7280;
   transition: transform 0.2s ease;
 }
 
-.admin-top-navbar .user-dropdown:hover .dropdown-icon {
-  transform: rotate(180deg);
-}
-
-.admin-top-navbar .dropdown-menu {
+.navbar2-dropdown-menu {
+  display: none;
   position: absolute;
   right: 0;
   top: 100%;
@@ -178,17 +163,22 @@
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
   min-width: 200px;
   z-index: 50;
   overflow: hidden;
 }
 
-.admin-top-navbar .dropdown-menu li {
+.navbar2-user-dropdown.open .navbar2-dropdown-menu {
+  display: block;
+}
+
+.navbar2-dropdown-menu li {
   padding: 0;
 }
 
-.admin-top-navbar .dropdown-menu a {
+.navbar2-dropdown-menu a {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -199,31 +189,29 @@
   transition: all 0.2s ease;
 }
 
-.admin-top-navbar .dropdown-menu a:hover {
+.navbar2-dropdown-menu a:hover {
   background-color: #f9fafb;
   color: #111827;
 }
 
-.admin-top-navbar .dropdown-menu a svg {
-  width: 1rem;
-  height: 1rem;
-  color: #9ca3af;
-}
-
-.admin-top-navbar .dropdown-menu li:not(:last-child) {
+.navbar2-dropdown-menu li:not(:last-child) {
   border-bottom: 1px solid #f3f4f6;
 }
 
+.navbar2-user-dropdown.open .navbar2-dropdown-icon {
+  transform: rotate(180deg);
+}
+
 @media (max-width: 768px) {
-  .admin-top-navbar {
+  .navbar2-container {
     padding: 0 1rem;
   }
-  
-  .admin-top-navbar .search-section {
+
+  .navbar2-search-section {
     display: none;
   }
-  
-  .admin-top-navbar .right-section {
+
+  .navbar2-right {
     gap: 1rem;
   }
 }
