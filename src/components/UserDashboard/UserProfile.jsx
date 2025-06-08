@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
 import { FiCalendar, FiBook, FiCheckCircle, FiUser, FiClock } from 'react-icons/fi';
 import { BiRupee } from 'react-icons/bi';
-
 import './UserProfile.css';
 
 function UserProfile() {
   const [profileImage, setProfileImage] = useState(null);
-  const [bookings] = useState([
+
+  const bookings = [
     { id: 1, hotel: 'Hotel ABC', date: '2024-10-10', status: 'Upcoming' },
     { id: 2, hotel: 'Hotel XYZ', date: '2024-09-15', status: 'Completed' },
-  ]);
-  const [foodOrders] = useState([
+  ];
+
+  const foodOrders = [
     { id: 1, item: 'Pasta', date: '2024-09-20', amount: 350 },
     { id: 2, item: 'Pizza', date: '2024-09-22', amount: 500 },
-  ]);
-  const [checkInOutStatus, setCheckInOutStatus] = useState('Checked Out');
+  ];
+
+  const totalSpent = foodOrders.reduce((sum, order) => sum + order.amount, 0);
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       setProfileImage(URL.createObjectURL(e.target.files[0]));
     }
-  };
-
-  const toggleCheckInStatus = () => {
-    setCheckInOutStatus(prev => (prev === 'Checked In' ? 'Checked Out' : 'Checked In'));
   };
 
   return (
@@ -36,18 +34,12 @@ function UserProfile() {
           style={{ cursor: 'pointer' }}
         >
           {profileImage ? (
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="profile-photo"
-            />
+            <img src={profileImage} alt="Profile" className="profile-photo" />
           ) : (
             <div className="photo-placeholder">
               <FiUser size={48} />
             </div>
           )}
-
-          {/* Hidden file input */}
           <input
             type="file"
             id="fileInput"
@@ -61,25 +53,23 @@ function UserProfile() {
           <p className="profile-email">girishubhajit37@gmail.com</p>
           <div className="profile-meta">
             <span className="meta-item">
-              <FiUser className="meta-icon" />
-              Member since 2024
+              <FiUser className="meta-icon" /> Member since 2024
             </span>
             <span className="meta-item">
-              <FiCheckCircle className="meta-icon" />
-              Verified
+              <FiCheckCircle className="meta-icon" /> Verified
             </span>
           </div>
         </div>
       </div>
 
-      {/* Stats Cards */}
+      {/* Stats */}
       <div className="stats-grid">
         <div className="stat-card">
           <div className="stat-icon">
             <FiCalendar />
           </div>
           <div className="stat-details">
-            <h3>Upcoming</h3>
+            <h3>Bookings</h3>
             <p>{bookings.length}</p>
           </div>
         </div>
@@ -88,7 +78,7 @@ function UserProfile() {
             <FiBook />
           </div>
           <div className="stat-details">
-            <h3>Orders</h3>
+            <h3>Food Orders</h3>
             <p>{foodOrders.length}</p>
           </div>
         </div>
@@ -97,8 +87,8 @@ function UserProfile() {
             <FiClock />
           </div>
           <div className="stat-details">
-            <h3>Status</h3>
-            <p>{checkInOutStatus}</p>
+            <h3>Last Stay</h3>
+            <p>{bookings[1]?.date || 'N/A'}</p>
           </div>
         </div>
         <div className="stat-card">
@@ -106,25 +96,23 @@ function UserProfile() {
             <BiRupee size={20} />
           </div>
           <div className="stat-details">
-            <h3>Total</h3>
-            <p>12,345</p>
+            <h3>Total Spent</h3>
+            <p>{totalSpent.toLocaleString()}</p>
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Booking History */}
       <div className="profile-content">
-        {/* Bookings Section */}
         <section className="section">
           <div className="section-header">
-            <h3 className="section-title">My Bookings</h3>
-            <button className="section-action">View All</button>
+            <h3 className="section-title">Booking History</h3>
           </div>
           <div className="list">
             {bookings.map((b) => (
               <div key={b.id} className="list-item">
                 <div className="item-icon">
-                  <FiBook />
+                  <FiCalendar />
                 </div>
                 <div className="item-info">
                   <div className="item-title">{b.hotel}</div>
@@ -138,11 +126,10 @@ function UserProfile() {
           </div>
         </section>
 
-        {/* Food Orders Section */}
+        {/* Food Orders */}
         <section className="section">
           <div className="section-header">
-            <h3 className="section-title">Food Orders</h3>
-            <button className="section-action">View All</button>
+            <h3 className="section-title">Food Order History</h3>
           </div>
           <div className="list">
             {foodOrders.map((o) => (
@@ -162,25 +149,6 @@ function UserProfile() {
           </div>
         </section>
       </div>
-
-      {/* Status Section */}
-      <section className="status-section">
-        <div className="status-content">
-          <div className="status-info">
-            <FiCheckCircle className="status-icon" />
-            <div>
-              <p className="status-label">Current Status</p>
-              <h3 className="status-value">{checkInOutStatus}</h3>
-            </div>
-          </div>
-          <button
-            className={`status-button ${checkInOutStatus === 'Checked In' ? 'checked-in' : ''}`}
-            onClick={toggleCheckInStatus}
-          >
-            {checkInOutStatus === 'Checked In' ? 'Check Out' : 'Check In'}
-          </button>
-        </div>
-      </section>
     </div>
   );
 }
