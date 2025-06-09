@@ -113,16 +113,16 @@ function LoginSignup() {
           <form onSubmit={handleSubmit}>
             <h2>{isSignUp ? 'Create Account' : 'Log In'}</h2>
 
-            <div className="social-login">
+            {/* <div className="social-login">
               <button type="button" className="social-btn">
                 <FaGoogle /> {isSignUp ? 'Sign Up' : 'Log In'} with Google
               </button>
               <button type="button" className="social-btn">
                 <FaFacebookF /> {isSignUp ? 'Sign Up' : 'Log In'} with Facebook
               </button>
-            </div>
-
-            <span>or use your email</span>
+            </div> */}
+{/* 
+            <span>or use your email</span> */}
 
             {isSignUp && (
               <>
