@@ -5,13 +5,7 @@ export const hotels = [
     location: "Shimla, India",
     image: "/Images/hotel-1.jpg",
     images: ["/Images/room-1.jpg", "/Images/room-2.jpg", "/Images/room-3.jpg"],
-    price: {
-      standard: 1200,
-      deluxe: 1800,
-      suite: 2500,
-      family: 2000,
-      premium: 3000
-    },
+    price: 1200,
     description: "Nestled in the hills with breathtaking views of the Himalayan ranges.",
     rating: 4.8,
     rooms: 2,
@@ -25,13 +19,7 @@ export const hotels = [
     location: "Kashmir, India",
     image: "/Images/hotel-2.jpg",
     images: ["/Images/room-4.jpg", "/Images/room-5.jpg"],
-    price: {
-      standard: 750,
-      deluxe: 1200,
-      suite: 1800,
-      family: 1500,
-      premium: 2200
-    },
+    price: 750,
     description: "Luxury accommodations on the shores of Dal Lake with stunning views.",
     rating: 4.7,
     rooms: 1,
@@ -45,13 +33,7 @@ export const hotels = [
     location: "Goa, India",
     image: "/Images/hotel-3.jpg",
     images: ["/Images/room-2.jpg", "/Images/room-4.jpg", "/Images/room-6.jpg"],
-    price: {
-      standard: 880,
-      deluxe: 1400,
-      suite: 2100,
-      family: 1800,
-      premium: 2600
-    },
+    price: 880,
     description: "Beachfront property with direct access to the white sands of Goa.",
     rating: 4.9,
     rooms: 3,
@@ -65,13 +47,7 @@ export const hotels = [
     location: "Varanasi, India",
     image: "/Images/hotel-4.jpg",
     images: ["/Images/room-3.jpg", "/Images/room-1.jpg"],
-    price: {
-      standard: 900,
-      deluxe: 1300,
-      suite: 1900,
-      family: 1600,
-      premium: 2400
-    },
+    price: 900,
     description: "Traditional accommodations with stunning views of the Ganges River.",
     rating: 4.5,
     rooms: 1,
@@ -85,13 +61,7 @@ export const hotels = [
     location: "Manali, India",
     image: "/Images/hotel-5.jpg",
     images: ["/Images/room-1.jpg", "/Images/room-2.jpg"],
-    price: {
-      standard: 1350,
-      deluxe: 1900,
-      suite: 2700,
-      family: 2200,
-      premium: 3200
-    },
+    price: 1350,
     description: "Cozy lodge surrounded by pine forests and snow-capped mountains.",
     rating: 4.6,
     rooms: 2,
@@ -105,13 +75,7 @@ export const hotels = [
     location: "Kedarnath, India",
     image: "/Images/hotel-4.jpg",
     images: ["/Images/room-3.jpg", "/Images/room-4.jpg"],
-    price: {
-      standard: 1100,
-      deluxe: 1600,
-      suite: 2300,
-      family: 2000,
-      premium: 2900
-    },
+    price: 1100,
     description: "Peaceful retreat in the sacred valley with meditation spaces.",
     rating: 4.4,
     rooms: 1,
@@ -125,13 +89,7 @@ export const hotels = [
     location: "Mumbai, India",
     image: "/images/hotel-5.jpg",
     images: ["/Images/room-5.jpg", "/Images/room-6.jpg"],
-    price: {
-      standard: 1600,
-      deluxe: 2200,
-      suite: 3200,
-      family: 2800,
-      premium: 3800
-    },
+    price: 1600,
     description: "Modern city center hotel with skyline views and top-notch amenities.",
     rating: 4.2,
     rooms: 1,
@@ -145,13 +103,7 @@ export const hotels = [
     location: "Jim Corbett, India",
     image: "/Images/hotel-1.jpg",
     images: ["/Images/room-1.jpg", "/Images/room-2.jpg"],
-    price: {
-      standard: 950,
-      deluxe: 1400,
-      suite: 2100,
-      family: 1800,
-      premium: 2600
-    },
+    price: 950,
     description: "Eco-lodge located at the edge of a national park with jungle safaris.",
     rating: 4.3,
     rooms: 2,
@@ -165,13 +117,7 @@ export const hotels = [
     location: "Jaisalmer, India",
     image: "/Images/hotel-2.jpg",
     images: ["/Images/room-6.jpg", "/Images/room-2.jpg"],
-    price: {
-      standard: 1000,
-      deluxe: 1500,
-      suite: 2200,
-      family: 1900,
-      premium: 2800
-    },
+    price: 1000,
     description: "Luxury desert camp experience in the golden dunes of Rajasthan.",
     rating: 4.6,
     rooms: 1,
@@ -185,13 +131,7 @@ export const hotels = [
     location: "Munnar, India",
     image: "/images/hotel-3.jpg",
     images: ["/images/room-2.jpg", "/images/room-3.jpg", "/images/room-4.jpg"],
-    price: {
-      standard: 1050,
-      deluxe: 1600,
-      suite: 2300,
-      family: 2000,
-      premium: 2900
-    },
+    price: 1050,
     description: "Charming resort set among rolling tea plantations and misty hills.",
     rating: 4.7,
     rooms: 2,
@@ -205,13 +145,7 @@ export const hotels = [
     location: "Udaipur, India",
     image: "/Images/hotel-4.jpg",
     images: ["/Images/room-4.jpg", "/Images/room-5.jpg"],
-    price: {
-      standard: 1250,
-      deluxe: 1900,
-      suite: 2800,
-      family: 2400,
-      premium: 3500
-    },
+    price: 1250,
     description: "Stay in a restored 18th-century haveli overlooking Lake Pichola.",
     rating: 4.8,
     rooms: 2,
@@ -225,13 +159,7 @@ export const hotels = [
     location: "Puducherry, India",
     image: "/Images/hotel-5.jpg",
     images: ["/Images/room-6.jpg", "/Images/room-2.jpg"],
-    price: {
-      standard: 980,
-      deluxe: 1500,
-      suite: 2200,
-      family: 1900,
-      premium: 2800
-    },
+    price: 980,
     description: "Tranquil ocean-facing resort with French colonial charm.",
     rating: 4.5,
     rooms: 1,
@@ -245,13 +173,7 @@ export const hotels = [
     location: "Darjeeling, India",
     image: "/Images/hotel-3.jpg",
     images: ["/Images/room-2.jpg", "/Images/room-1.jpg"],
-    price: {
-      standard: 1020,
-      deluxe: 1600,
-      suite: 2400,
-      family: 2100,
-      premium: 3100
-    },
+    price: 1020,
     description: "Colonial-style hotel with panoramic views of Kanchenjunga.",
     rating: 4.6,
     rooms: 2,
@@ -265,13 +187,7 @@ export const hotels = [
     location: "Andaman Islands, India",
     image: "/Images/hotel-5.jpg",
     images: ["/Images/room-3.jpg", "/Images/room-1.jpg"],
-    price: {
-      standard: 1450,
-      deluxe: 2100,
-      suite: 3200,
-      family: 2800,
-      premium: 3900
-    },
+    price: 1450,
     description: "Private beachfront villas with water sports and marine activities.",
     rating: 4.9,
     rooms: 1,
@@ -285,13 +201,7 @@ export const hotels = [
     location: "Dharamshala, India",
     image: "/Images/hotel-1.jpg",
     images: ["/Images/room-2.jpg", "/Images/room-3.jpg"],
-    price: {
-      standard: 970,
-      deluxe: 1500,
-      suite: 2200,
-      family: 1900,
-      premium: 2800
-    },
+    price: 970,
     description: "Peaceful retreat near monasteries and pine forests.",
     rating: 4.4,
     rooms: 1,
@@ -305,13 +215,7 @@ export const hotels = [
     location: "Alleppey, India",
     image: "/images/hotel-2.jpg",
     images: ["/images/room-4.jpg"],
-    price: {
-      standard: 1150,
-      deluxe: 1800,
-      suite: 2600,
-      family: 2200,
-      premium: 3300
-    },
+    price: 1150,
     description: "Charming houseboat-style stay along Kerala's scenic backwaters.",
     rating: 4.7,
     rooms: 1,
@@ -325,13 +229,7 @@ export const hotels = [
     location: "Jaipur, India",
     image: "/Images/hotel-3.jpg",
     images: ["/Images/room-5.jpg", "/Images/room-6.jpg"],
-    price: {
-      standard: 1300,
-      deluxe: 2000,
-      suite: 3000,
-      family: 2600,
-      premium: 3800
-    },
+    price: 1300,
     description: "Experience regal Rajasthani hospitality in a heritage fort hotel.",
     rating: 4.8,
     rooms: 2,
@@ -345,13 +243,7 @@ export const hotels = [
     location: "Ooty, India",
     image: "/Images/hotel-4.jpg",
     images: ["/Images/room-3.jpg", "/Images/room-2.jpg"],
-    price: {
-      standard: 990,
-      deluxe: 1500,
-      suite: 2300,
-      family: 2000,
-      premium: 2900
-    },
+    price: 990,
     description: "Charming hill-station chalet nestled among eucalyptus trees.",
     rating: 4.5,
     rooms: 2,
@@ -359,4 +251,6 @@ export const hotels = [
     guests: 4,
     amenities: ["Fireplace", "Garden View", "Organic Meals", "Hiking Trails"]
   }
+
+
 ];
